@@ -15,11 +15,12 @@ public let ScreenDeviceScale = UIScreen.main.scale
 public let UIScreenPixel = 1.0 / ScreenDeviceScale
 
 
-public func LOGI(_ params:String="", function:NSString = #function, file:NSString = #file, line:Int = #line){
-    print("🔵[\(file.lastPathComponent)][\(function) (l:\(line))]->\(params)");
-}
 public func LOGD(_ params:String="", function:NSString = #function,  file:NSString = #file, line:Int = #line){
     print("✅[\(file.lastPathComponent)][\(function) (l:\(line))]->\(params)");
+}
+
+public func LOGI(_ params:String="", function:NSString = #function, file:NSString = #file, line:Int = #line){
+    print("🔵[\(file.lastPathComponent)][\(function) (l:\(line))]->\(params)");
 }
 
 public func LOGW(_ params:String="", file:NSString = #file, function:NSString = #function, line:Int = #line){

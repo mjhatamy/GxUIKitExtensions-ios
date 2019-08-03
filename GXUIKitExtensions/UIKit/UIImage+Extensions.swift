@@ -40,7 +40,16 @@ public extension UIImage{
         return UIImage(data: decodedData)
     }
     
-    
+    class func fromSVG( _ svgFileContent: StaticString,  _ color: UIColor, _ size: CGSize) -> UIImage? {
+        return UIImage.generateImage( size, rotatedContext: { size, context in
+            context.clear(CGRect(origin: CGPoint(), size: size))
+            context.setFillColor(color.cgColor)
+            
+            context.translateBy(x: 0.0, y: -UIScreenPixel)
+            
+            let _ = try? UIImage.drawSvgPath(context, path: svgFileContent)
+        })
+    }
     
     class func generateBackArrowImage(color: UIColor) -> UIImage? {
         return UIImage.generateImage(CGSize(width: 13.0, height: 22.0), rotatedContext: { size, context in

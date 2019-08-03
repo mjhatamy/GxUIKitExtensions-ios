@@ -25,6 +25,29 @@ let CountryPhonePrefixCodes = ["AF": "93", "AE": "971", "AL": "355", "AN": "599"
 
 public extension String{
     static let phoneNumberKit = PhoneNumberKit()
+    
+    func attributedString( _ foregroundColor:UIColor, font:UIFont?, alignment:NSTextAlignment? = nil, backgroundColor:UIColor? = nil) -> NSAttributedString{
+        var attributes:[NSAttributedString.Key: Any] = [NSAttributedString.Key: Any]()
+        attributes[NSAttributedString.Key.foregroundColor] = foregroundColor
+        
+        if let m_font:UIFont = font {
+            attributes[NSAttributedString.Key.font] = m_font
+        }
+        
+        if let m_alignment:NSTextAlignment = alignment {
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.alignment = m_alignment
+            
+            attributes[NSAttributedString.Key.paragraphStyle] = paragraphStyle
+        }
+        
+        if let m_backgroundColor = backgroundColor {
+            attributes[NSAttributedString.Key.backgroundColor] = m_backgroundColor
+        }
+        
+        return NSAttributedString(string: self, attributes: attributes)
+    }
+    
     var digitsString:String{
         let expression = "[^0-9]"
         do{
@@ -151,6 +174,10 @@ public extension String{
         */
     }
     
+    var partialPhoneNumberFormatter : String {
+        let m_partialFormatter = PartialFormatter();
+        return m_partialFormatter.formatPartial(self);
+    }
     
     func prettyPhoneNumberFormat(_ countryDialingCode:Int? = nil, isoCountryCode:String? = nil, removeLeadingPlus:Bool = false) -> String?{
         var phoneNumber = self //.toDigitsString()

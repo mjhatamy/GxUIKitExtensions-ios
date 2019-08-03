@@ -14,6 +14,7 @@
 		C328BB64227D533C00C33BBF /* SF-Pro-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C328BB62227D531C00C33BBF /* SF-Pro-Text-Semibold.otf */; };
 		C328BB65227D533E00C33BBF /* SF-Pro-Text-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C328BB5A227D4F5400C33BBF /* SF-Pro-Text-Bold.otf */; };
 		C32CC6552244B66300580902 /* UINavigationController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32CC6542244B66300580902 /* UINavigationController+Extensions.swift */; };
+		C32D4C5122F154BC005FEDAA /* PhoneNumberKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C32D4C5022F154BB005FEDAA /* PhoneNumberKit.framework */; };
 		C33FC5EA22571B0C0080D6FF /* NSRegularExpression+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33FC5E922571B0C0080D6FF /* NSRegularExpression+Extensions.swift */; };
 		C3960CE52288EAB50008AB73 /* SF-Pro-Text-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = C3960CE42288EA150008AB73 /* SF-Pro-Text-Light.otf */; };
 		C3AE35E32258295F009994FF /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AE35E22258295F009994FF /* Date+Extension.swift */; };
@@ -55,6 +56,7 @@
 		C328BB60227D520D00C33BBF /* SF-Pro-Text-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Regular.otf"; sourceTree = "<group>"; };
 		C328BB62227D531C00C33BBF /* SF-Pro-Text-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Semibold.otf"; sourceTree = "<group>"; };
 		C32CC6542244B66300580902 /* UINavigationController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extensions.swift"; sourceTree = "<group>"; };
+		C32D4C5022F154BB005FEDAA /* PhoneNumberKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhoneNumberKit.framework; path = ../../carthage_frameworks/Carthage/Build/iOS/PhoneNumberKit.framework; sourceTree = "<group>"; };
 		C33FC5E52256DA690080D6FF /* SWKSwiftSignalKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SWKSwiftSignalKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C33FC5E922571B0C0080D6FF /* NSRegularExpression+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSRegularExpression+Extensions.swift"; sourceTree = "<group>"; };
 		C3960CE42288EA150008AB73 /* SF-Pro-Text-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Light.otf"; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C32D4C5122F154BC005FEDAA /* PhoneNumberKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +126,7 @@
 		C33FC5E42256DA690080D6FF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C32D4C5022F154BB005FEDAA /* PhoneNumberKit.framework */,
 				C33FC5E52256DA690080D6FF /* SWKSwiftSignalKit.framework */,
 			);
 			name = Frameworks;
