@@ -22,6 +22,7 @@
 		C3BF8FB8224CC8E400F1BD0C /* GXRunLoopThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BF8FB7224CC8E400F1BD0C /* GXRunLoopThread.swift */; };
 		C3C678B42275A7AC000CE449 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C678B32275A7AC000CE449 /* Data+Extension.swift */; };
 		C3C678B92275B5F6000CE449 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C678B82275B5F6000CE449 /* Bundle+Extension.swift */; };
+		C3CABF0122F62ADA00B3A9B6 /* UIInterfaceOrientationMask+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CABF0022F62ADA00B3A9B6 /* UIInterfaceOrientationMask+Extension.swift */; };
 		C3FA3C5B2254D161002AD7A9 /* NSAttributedString+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FA3C5A2254D161002AD7A9 /* NSAttributedString+Extensions.swift */; };
 		C3FF2B95223B8331003E658C /* GXUIKitExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3FF2B8B223B8331003E658C /* GXUIKitExtensions.framework */; };
 		C3FF2B9A223B8331003E658C /* GXUIKitExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FF2B99223B8331003E658C /* GXUIKitExtensionsTests.swift */; };
@@ -65,6 +66,7 @@
 		C3BF8FB7224CC8E400F1BD0C /* GXRunLoopThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GXRunLoopThread.swift; sourceTree = "<group>"; };
 		C3C678B32275A7AC000CE449 /* Data+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
 		C3C678B82275B5F6000CE449 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
+		C3CABF0022F62ADA00B3A9B6 /* UIInterfaceOrientationMask+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIInterfaceOrientationMask+Extension.swift"; sourceTree = "<group>"; };
 		C3FA3C5A2254D161002AD7A9 /* NSAttributedString+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Extensions.swift"; sourceTree = "<group>"; };
 		C3FF2B8B223B8331003E658C /* GXUIKitExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GXUIKitExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3FF2B8E223B8331003E658C /* GXUIKitExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GXUIKitExtensions.h; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				C3FF2BA9223B835D003E658C /* UIViewController+Extensions.swift */,
 				C3FF2BA6223B835D003E658C /* URL+Extensions.swift */,
 				C3C678B82275B5F6000CE449 /* Bundle+Extension.swift */,
+				C3CABF0022F62ADA00B3A9B6 /* UIInterfaceOrientationMask+Extension.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 				C328BB5F227D506100C33BBF /* GXUIKitExtensions.swift in Sources */,
 				C3251972223E513D00029C0E /* UIImageView+Extensions.swift in Sources */,
 				C3FF2BB4223B835D003E658C /* CGFloat+Extensions.swift in Sources */,
+				C3CABF0122F62ADA00B3A9B6 /* UIInterfaceOrientationMask+Extension.swift in Sources */,
 				C3FF2BB1223B835D003E658C /* UIViewController+Extensions.swift in Sources */,
 				C3FA3C5B2254D161002AD7A9 /* NSAttributedString+Extensions.swift in Sources */,
 				C3BA8F92224D88B500D6A9CB /* GXQueueFifoThread.swift in Sources */,
