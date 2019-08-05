@@ -75,18 +75,25 @@ public extension UIFont {
         LOGE("Unable to load font SFProTextRegularFont size: 17")
         return UIFont.preferredFont(forTextStyle: UIFont.TextStyle.body)  }
     
-    class var callout:UIFont {
-        if let font:UIFont = UIFont.SFProTextRegularFont(16) { return font }
-        return UIFont.preferredFont(forTextStyle: UIFont.TextStyle.callout) }
+    class var bodyLight:UIFont {
+        if let font:UIFont = UIFont.SFProTextLightFont(17) { return font }
+        LOGE("Unable to load font SFProTextRegularFont size: 17")
+        return UIFont.preferredFont(forTextStyle: UIFont.TextStyle.body)  }
     
+    class var callout:UIFont { return UIFont.SFProTextRegularFont(16) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.callout) }
+    
+    class var calloutLight:UIFont    { return UIFont.SFProTextLightFont(16) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.callout) }
     class var calloutBold:UIFont    { return UIFont.SFProTextSemiBoldFont(16) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.callout) }
     class var caption1:UIFont       { return UIFont.SFProTextRegularFont(11) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.caption1) }
+    class var caption1Light:UIFont       { return UIFont.SFProTextLightFont(11) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.caption1) }
     class var caption2:UIFont       { return UIFont.SFProTextRegularFont(11) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.caption2) }
     class var footnote:UIFont       { return UIFont.SFProTextRegularFont(13) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.footnote) }
+    class var footnoteLight:UIFont       { return UIFont.SFProTextLightFont(13) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.footnote) }
     class var footnote2:UIFont       { return UIFont.SFProTextRegularFont(14) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.footnote) }
     class var footnoteBold:UIFont   { return UIFont.SFProTextSemiBoldFont(13) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.footnote) }
     class var subhead:UIFont        { return UIFont.SFProTextRegularFont(15) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.subheadline) }
     class var subhead2:UIFont        { return UIFont.SFProTextRegularFont(16) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.subheadline) }
+    class var subheadLight:UIFont        { return UIFont.SFProTextLightFont(15) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.subheadline) }
     class var subhead3:UIFont        { return UIFont.SFProTextRegularFont(17) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.subheadline) }
     class var headline:UIFont       { return UIFont.SFProTextSemiBoldFont(17) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.headline) }
     class var headline2:UIFont      { return UIFont.SFProTextSemiBoldFont(18) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.headline) }
@@ -97,8 +104,11 @@ public extension UIFont {
     class var callKitSubTitleGroupCall:UIFont         { return UIFont.SFProTextLightFont(24) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.title1) }
     
     class var title1:UIFont         { return UIFont.SFProTextRegularFont(28) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.title1) }
+    class var title1Light:UIFont         { return UIFont.SFProTextLightFont(28) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.title1) }
     class var title2:UIFont         { return UIFont.SFProTextRegularFont(22) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.title2) }
+    class var title2Light:UIFont         { return UIFont.SFProTextLightFont(22) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.title2) }
     class var title3:UIFont         { return UIFont.SFProTextRegularFont(20) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.title3) }
+    class var title3Light:UIFont         { return UIFont.SFProTextLightFont(20) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.title3) }
     class var title4:UIFont         { return UIFont.SFProTextRegularFont(19) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.title3) }
     class var largeTitle:UIFont     { if #available(iOS 11.0, *) {
         return UIFont.SFProTextRegularFont(34) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.largeTitle)

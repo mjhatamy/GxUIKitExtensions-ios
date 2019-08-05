@@ -48,6 +48,28 @@ public extension String{
         return NSAttributedString(string: self, attributes: attributes)
     }
     
+    func attributedStringMutable( _ foregroundColor:UIColor, font:UIFont?, alignment:NSTextAlignment? = nil, backgroundColor:UIColor? = nil) -> NSMutableAttributedString{
+        var attributes:[NSAttributedString.Key: Any] = [NSAttributedString.Key: Any]()
+        attributes[NSAttributedString.Key.foregroundColor] = foregroundColor
+        
+        if let m_font:UIFont = font {
+            attributes[NSAttributedString.Key.font] = m_font
+        }
+        
+        if let m_alignment:NSTextAlignment = alignment {
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.alignment = m_alignment
+            
+            attributes[NSAttributedString.Key.paragraphStyle] = paragraphStyle
+        }
+        
+        if let m_backgroundColor = backgroundColor {
+            attributes[NSAttributedString.Key.backgroundColor] = m_backgroundColor
+        }
+        
+        return NSMutableAttributedString(string: self, attributes: attributes)
+    }
+    
     var digitsString:String{
         let expression = "[^0-9]"
         do{
