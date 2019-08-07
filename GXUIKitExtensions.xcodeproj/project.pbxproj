@@ -20,6 +20,8 @@
 		C3AE35E32258295F009994FF /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AE35E22258295F009994FF /* Date+Extension.swift */; };
 		C3BA8F92224D88B500D6A9CB /* GXQueueFifoThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BA8F91224D88B500D6A9CB /* GXQueueFifoThread.swift */; };
 		C3BF8FB8224CC8E400F1BD0C /* GXRunLoopThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BF8FB7224CC8E400F1BD0C /* GXRunLoopThread.swift */; };
+		C3C029C822F948F600BD16AE /* WKWebView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C029C722F948F600BD16AE /* WKWebView+Extension.swift */; };
+		C3C029CB22F94BD600BD16AE /* GxPDFGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C029CA22F94BD600BD16AE /* GxPDFGenerator.swift */; };
 		C3C678B42275A7AC000CE449 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C678B32275A7AC000CE449 /* Data+Extension.swift */; };
 		C3C678B92275B5F6000CE449 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C678B82275B5F6000CE449 /* Bundle+Extension.swift */; };
 		C3CABF0122F62ADA00B3A9B6 /* UIInterfaceOrientationMask+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CABF0022F62ADA00B3A9B6 /* UIInterfaceOrientationMask+Extension.swift */; };
@@ -64,6 +66,8 @@
 		C3AE35E22258295F009994FF /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		C3BA8F91224D88B500D6A9CB /* GXQueueFifoThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GXQueueFifoThread.swift; sourceTree = "<group>"; };
 		C3BF8FB7224CC8E400F1BD0C /* GXRunLoopThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GXRunLoopThread.swift; sourceTree = "<group>"; };
+		C3C029C722F948F600BD16AE /* WKWebView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WKWebView+Extension.swift"; sourceTree = "<group>"; };
+		C3C029CA22F94BD600BD16AE /* GxPDFGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GxPDFGenerator.swift; sourceTree = "<group>"; };
 		C3C678B32275A7AC000CE449 /* Data+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
 		C3C678B82275B5F6000CE449 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		C3CABF0022F62ADA00B3A9B6 /* UIInterfaceOrientationMask+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIInterfaceOrientationMask+Extension.swift"; sourceTree = "<group>"; };
@@ -134,6 +138,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C3C029C922F94BC200BD16AE /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C3C029CA22F94BD600BD16AE /* GxPDFGenerator.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		C3FF2B81223B8331003E658C = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +169,7 @@
 		C3FF2B8D223B8331003E658C /* GXUIKitExtensions */ = {
 			isa = PBXGroup;
 			children = (
+				C3C029C922F94BC200BD16AE /* Utils */,
 				C3238CC9226F04390038EDCE /* AVFoundation */,
 				C3FF2BA5223B8354003E658C /* UIKit */,
 				C3FF2B8E223B8331003E658C /* GXUIKitExtensions.h */,
@@ -198,6 +211,7 @@
 				C3FF2BA6223B835D003E658C /* URL+Extensions.swift */,
 				C3C678B82275B5F6000CE449 /* Bundle+Extension.swift */,
 				C3CABF0022F62ADA00B3A9B6 /* UIInterfaceOrientationMask+Extension.swift */,
+				C3C029C722F948F600BD16AE /* WKWebView+Extension.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -334,11 +348,13 @@
 				C3FF2BC1223B8B86003E658C /* UIDevice+Extensions.swift in Sources */,
 				C3C678B42275A7AC000CE449 /* Data+Extension.swift in Sources */,
 				C32CC6552244B66300580902 /* UINavigationController+Extensions.swift in Sources */,
+				C3C029C822F948F600BD16AE /* WKWebView+Extension.swift in Sources */,
 				C3FF2BAE223B835D003E658C /* URL+Extensions.swift in Sources */,
 				C3FF2BAF223B835D003E658C /* UIColor+Extensions.swift in Sources */,
 				C3FF2BB9223B886C003E658C /* Globals.swift in Sources */,
 				C3AE35E32258295F009994FF /* Date+Extension.swift in Sources */,
 				C3FF2BBF223B89DE003E658C /* Collection+Extension.swift in Sources */,
+				C3C029CB22F94BD600BD16AE /* GxPDFGenerator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
