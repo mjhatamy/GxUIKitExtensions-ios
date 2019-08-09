@@ -7,11 +7,11 @@
 //
 
 import Foundation
-
+/*
 public enum GixDirectoryType:String {
     case LanguagePack = "LanguagePack"
 }
-
+*/
 public extension URL {
     var fileSize:Int{
         do {
@@ -22,13 +22,14 @@ public extension URL {
         }
         return -1
     }
-    
+    /*
     static func getDirectory(for type:GixDirectoryType) -> URL?{
         switch type {
         case .LanguagePack:
             return URL.cacheDirectory?.appendingPathComponent(GixDirectoryType.LanguagePack.rawValue)
         }
     }
+    
     
     static func getURL(for fileName:String, type:GixDirectoryType, intermediateDirectory:String? = nil, isExcludedFromBackup:Bool = false) -> URL?{
         guard let directoryUrl:URL = self.getDirectory(for: type),
@@ -41,6 +42,7 @@ public extension URL {
         }
         return preparedDirectoryUrl.appendingPathComponent(m_fileName.lastPathComponent)
     }
+    */
     
     static func prepareDirectory(_ url:URL, _ isExcludedFromBackup:Bool = true) -> URL?{
         var url:URL = url
