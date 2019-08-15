@@ -92,7 +92,7 @@ public extension String{
         var height:CGFloat = (width * 7)/6
         func emojiFlagString() -> String? {
             var string = ""
-            var country = self.uppercased()
+            let country = self.uppercased()
             for uS in country.unicodeScalars {
                 guard let scallar = UnicodeScalar(127397 + uS.value) else{
                     return nil
