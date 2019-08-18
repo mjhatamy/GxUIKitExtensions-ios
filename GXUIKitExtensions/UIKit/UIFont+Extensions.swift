@@ -23,23 +23,23 @@ public extension UIFont {
         }
         
         guard let fontData = NSData(contentsOfFile: pathForResourceString) else {
-            print("UIFont+:  Failed to register font - font data could not be loaded.")
+            LOGE("UIFont+:  Failed to register font - font data could not be loaded.")
             return false
         }
         
         guard let dataProvider = CGDataProvider(data: fontData) else {
-            print("UIFont+:  Failed to register font - data provider could not be loaded.")
+            LOGE("UIFont+:  Failed to register font - data provider could not be loaded.")
             return false
         }
         
         guard let font = CGFont(dataProvider) else {
-            print("UIFont+:  Failed to register font - font could not be loaded.")
+            LOGE("UIFont+:  Failed to register font - font could not be loaded.")
             return false
         }
         
         var errorRef: Unmanaged<CFError>? = nil
         if (CTFontManagerRegisterGraphicsFont(font, &errorRef) == false) {
-            print("UIFont+:  Failed to register font - register graphics font failed - this font may have already been registered in the main bundle.")
+            LOGE("UIFont+:  Failed to register font - register graphics font failed - this font may have already been registered in the main bundle.")
             return false
         }else{
             return true
