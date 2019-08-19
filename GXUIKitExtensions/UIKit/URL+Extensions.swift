@@ -44,6 +44,7 @@ public extension URL {
     }
     */
     
+    @discardableResult
     static func prepareDirectory(_ url:URL, _ isExcludedFromBackup:Bool = true) -> URL?{
         var url:URL = url
         var isDirectory:ObjCBool = false

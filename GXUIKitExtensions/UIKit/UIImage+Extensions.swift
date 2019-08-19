@@ -228,7 +228,7 @@ public extension UIImage{
         self.init(named: bundleImageName, in: frameworkBundle, compatibleWith: nil)
     }
     
-    func makeCircularImage(size: CGSize) -> UIImage {
+    func makeCircularImage(size: CGSize, backgoundColor:UIColor = UIColor.clear) -> UIImage {
         // make a CGRect with the image's size
         let circleRect = CGRect(origin: .zero, size: size)
         
@@ -241,7 +241,7 @@ public extension UIImage{
         // clip to the circle
         circle.addClip()
         
-        UIColor.white.set()
+        backgoundColor.set()
         circle.fill()
         
         // draw the image in the circleRect *AFTER* the context is clipped
@@ -275,27 +275,27 @@ public extension UIImage{
     
     
     func resize(width: CGFloat) -> UIImage? {
-        //let height:CGFloat = CGFloat(ceil(width/size.width * size.height))
-        
         let scale = width / self.size.width
         let newHeight = self.size.height * scale
-        UIGraphicsBeginImageContext(CGSize(width: width, height: newHeight))
-        self.draw(in: CGRect(x:0, y:0, width:width, height:newHeight))
+        let rect = CGRect(x:0, y:0, width:width, height:newHeight);
+        UIGraphicsBeginImageContextWithOptions(rect.size, false, UIScreen.main.scale)
+        //UIGraphicsBeginImageContext(size)
+        self.draw(in: rect)
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return newImage
-        
-        /*
-        let imageView = UIImageView(frame: CGRect(origin: .zero, size: CGSize(width: width, height: CGFloat(ceil(width/size.width * size.height)))))
-        imageView.contentMode = .scaleAspectFit
-        imageView.image = self
-        UIGraphicsBeginImageContextWithOptions(imageView.bounds.size, false, scale)
-        guard let context = UIGraphicsGetCurrentContext() else { return nil }
-        imageView.layer.render(in: context)
-        guard let result = UIGraphicsGetImageFromCurrentImageContext() else { return nil }
+    }
+    
+    func resize(_ size: CGSize) -> UIImage? {
+           //let height:CGFloat = CGFloat(ceil(width/size.width * size.height))
+           
+        //let scale = width / self.size.width
+           //let newHeight = self.size.height * scale
+        UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
+        self.draw(in: CGRect(x:0, y:0, width:size.width, height:size.height))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return result
- */
+        return newImage
     }
     
     class func drawCircle(diameter: CGFloat, color: UIColor) -> UIImage {

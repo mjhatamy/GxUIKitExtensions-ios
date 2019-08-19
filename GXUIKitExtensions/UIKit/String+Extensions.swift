@@ -157,8 +157,6 @@ public extension String{
         }else{
             
         }
-        
-        
        
         do {
             let m_phoneNumber = try String.phoneNumberKit.parse( digitString, withRegion: isoCountryCode ?? PhoneNumberKit.defaultRegionCode(), ignoreType: false )
@@ -166,15 +164,13 @@ public extension String{
         }catch{
             do{
                 digitString = String(format: "+%@", digitString);
-                let m_phoneNumber = try String.phoneNumberKit.parse( digitString )
+                let m_phoneNumber = try String.phoneNumberKit.parse( digitString, withRegion: isoCountryCode ?? PhoneNumberKit.defaultRegionCode() )
                 return String.phoneNumberKit.format(m_phoneNumber, toType: numberFormat)
             }catch{
                 // LOGE("Unable to format number:\(digitString)   -> Raw:\(self). error:\(error) isoCountryCode:\(isoCountryCode ?? "")");
             }
             
         }
-        
-        
         return digitString
         /*
         let phoneNumberKit = PhoneNumberKit()

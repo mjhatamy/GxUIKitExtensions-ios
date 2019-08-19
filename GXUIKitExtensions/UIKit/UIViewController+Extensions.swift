@@ -13,7 +13,6 @@ var global_safeAreaInsets:UIEdgeInsets = .zero
 public extension UIViewController {
     
     static var safeAreaInsets:UIEdgeInsets{
-        
         if Thread.isMainThread {
             if #available(iOS 11.0, *) {
                 if let m_global_safeAreaInsets = UIApplication.shared.keyWindow?.safeAreaInsets {
