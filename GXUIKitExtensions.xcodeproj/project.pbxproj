@@ -25,6 +25,7 @@
 		C3C678B92275B5F6000CE449 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C678B82275B5F6000CE449 /* Bundle+Extension.swift */; };
 		C3CABF0122F62ADA00B3A9B6 /* UIInterfaceOrientationMask+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CABF0022F62ADA00B3A9B6 /* UIInterfaceOrientationMask+Extension.swift */; };
 		C3FA3C5B2254D161002AD7A9 /* NSAttributedString+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FA3C5A2254D161002AD7A9 /* NSAttributedString+Extensions.swift */; };
+		C3FDCD61230CCFDF00507EEC /* CNLabeledValue+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FDCD60230CCFDF00507EEC /* CNLabeledValue+Extension.swift */; };
 		C3FF2B95223B8331003E658C /* GXUIKitExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3FF2B8B223B8331003E658C /* GXUIKitExtensions.framework */; };
 		C3FF2B9A223B8331003E658C /* GXUIKitExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FF2B99223B8331003E658C /* GXUIKitExtensionsTests.swift */; };
 		C3FF2B9C223B8331003E658C /* GXUIKitExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = C3FF2B8E223B8331003E658C /* GXUIKitExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -71,6 +72,7 @@
 		C3C678B82275B5F6000CE449 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		C3CABF0022F62ADA00B3A9B6 /* UIInterfaceOrientationMask+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIInterfaceOrientationMask+Extension.swift"; sourceTree = "<group>"; };
 		C3FA3C5A2254D161002AD7A9 /* NSAttributedString+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Extensions.swift"; sourceTree = "<group>"; };
+		C3FDCD60230CCFDF00507EEC /* CNLabeledValue+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CNLabeledValue+Extension.swift"; sourceTree = "<group>"; };
 		C3FF2B8B223B8331003E658C /* GXUIKitExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GXUIKitExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3FF2B8E223B8331003E658C /* GXUIKitExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GXUIKitExtensions.h; sourceTree = "<group>"; };
 		C3FF2B8F223B8331003E658C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 				C3C678B82275B5F6000CE449 /* Bundle+Extension.swift */,
 				C3CABF0022F62ADA00B3A9B6 /* UIInterfaceOrientationMask+Extension.swift */,
 				C3C029C722F948F600BD16AE /* WKWebView+Extension.swift */,
+				C3FDCD60230CCFDF00507EEC /* CNLabeledValue+Extension.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				C3FA3C5B2254D161002AD7A9 /* NSAttributedString+Extensions.swift in Sources */,
 				C3BA8F92224D88B500D6A9CB /* GXQueueFifoThread.swift in Sources */,
 				C33FC5EA22571B0C0080D6FF /* NSRegularExpression+Extensions.swift in Sources */,
+				C3FDCD61230CCFDF00507EEC /* CNLabeledValue+Extension.swift in Sources */,
 				C3FF2BB0223B835D003E658C /* UIImage+Extensions.swift in Sources */,
 				C3238CCB226F044F0038EDCE /* AVAudioSession+Extension.swift in Sources */,
 				C3C678B92275B5F6000CE449 /* Bundle+Extension.swift in Sources */,
