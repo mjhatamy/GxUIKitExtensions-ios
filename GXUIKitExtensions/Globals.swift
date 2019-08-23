@@ -10,6 +10,8 @@ import UIKit
 
 public let ALPHABET_CAPITAL_CHARACTER_ARRAY = ["A", "B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
 
+public let ALPHABET_ARRAY_FOR_TABLE_INDEX_SECTIONS = ["A", "B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z", "#"]
+
 public let DeviceColorSpace = CGColorSpaceCreateDeviceRGB()
 public let ScreenDeviceScale = UIScreen.main.scale
 public let UIScreenPixel = 1.0 / ScreenDeviceScale

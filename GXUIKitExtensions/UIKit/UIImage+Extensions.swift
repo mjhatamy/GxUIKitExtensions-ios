@@ -298,14 +298,32 @@ public extension UIImage{
         return newImage
     }
     
-    class func drawCircle(diameter: CGFloat, color: UIColor) -> UIImage {
-        UIGraphicsBeginImageContextWithOptions(CGSize(width: diameter, height: diameter), false, 0)
+    class func drawCircle(diameter: CGFloat, fillColor: UIColor, strokeColor:UIColor = UIColor.clear, strokeWidth:CGFloat? = nil, backgroundColor:UIColor = UIColor.clear) -> UIImage {
+        let screenScale = UIScreen.main.scale
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: diameter * screenScale, height: diameter * screenScale), false, 0)
         let ctx = UIGraphicsGetCurrentContext()!
         ctx.saveGState()
         
-        let rect = CGRect(x: 0, y: 0, width: diameter, height: diameter)
-        ctx.setFillColor(color.cgColor)
-        ctx.fillEllipse(in: rect)
+        //backgroundColor.set()
+        if let strokeWidth = strokeWidth {
+            ctx.setLineWidth(strokeWidth * screenScale)
+            //ctx.stroke(rect)
+            //strokeColor.set()
+            ctx.setStrokeColor(strokeColor.cgColor)
+        }
+        
+        ctx.setFillColor(fillColor.cgColor)
+        
+        let center = CGPoint(x: (diameter * screenScale)/2, y: (diameter * screenScale)/2)
+        let radius = ( (diameter * screenScale) - 10)/2;
+        ctx.addArc(center: center, radius: radius, startAngle: 0, endAngle: CGFloat.pi * 2.0, clockwise: true)
+        
+        
+        if let _ = strokeWidth {
+            ctx.drawPath(using: CGPathDrawingMode.fillStroke)
+        }else{
+            ctx.drawPath(using: CGPathDrawingMode.stroke)
+        }
         
         ctx.restoreGState()
         let img = UIGraphicsGetImageFromCurrentImageContext()!

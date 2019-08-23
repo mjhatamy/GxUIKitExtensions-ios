@@ -15,6 +15,7 @@
 		C328BB65227D533E00C33BBF /* SF-Pro-Text-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C328BB5A227D4F5400C33BBF /* SF-Pro-Text-Bold.otf */; };
 		C32CC6552244B66300580902 /* UINavigationController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32CC6542244B66300580902 /* UINavigationController+Extensions.swift */; };
 		C33FC5EA22571B0C0080D6FF /* NSRegularExpression+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33FC5E922571B0C0080D6FF /* NSRegularExpression+Extensions.swift */; };
+		C36D0F93230FD6E000B57D13 /* UIToolbar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D0F92230FD6E000B57D13 /* UIToolbar+Extension.swift */; };
 		C3960CE52288EAB50008AB73 /* SF-Pro-Text-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = C3960CE42288EA150008AB73 /* SF-Pro-Text-Light.otf */; };
 		C3AE35E32258295F009994FF /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AE35E22258295F009994FF /* Date+Extension.swift */; };
 		C3BA8F92224D88B500D6A9CB /* GXQueueFifoThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BA8F91224D88B500D6A9CB /* GXQueueFifoThread.swift */; };
@@ -62,6 +63,7 @@
 		C32D4C5022F154BB005FEDAA /* PhoneNumberKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhoneNumberKit.framework; path = ../../carthage_frameworks/Carthage/Build/iOS/PhoneNumberKit.framework; sourceTree = "<group>"; };
 		C33FC5E52256DA690080D6FF /* SWKSwiftSignalKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SWKSwiftSignalKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C33FC5E922571B0C0080D6FF /* NSRegularExpression+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSRegularExpression+Extensions.swift"; sourceTree = "<group>"; };
+		C36D0F92230FD6E000B57D13 /* UIToolbar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIToolbar+Extension.swift"; sourceTree = "<group>"; };
 		C3960CE42288EA150008AB73 /* SF-Pro-Text-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Light.otf"; sourceTree = "<group>"; };
 		C3AE35E22258295F009994FF /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		C3BA8F91224D88B500D6A9CB /* GXQueueFifoThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GXQueueFifoThread.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				C3CABF0022F62ADA00B3A9B6 /* UIInterfaceOrientationMask+Extension.swift */,
 				C3C029C722F948F600BD16AE /* WKWebView+Extension.swift */,
 				C3FDCD60230CCFDF00507EEC /* CNLabeledValue+Extension.swift */,
+				C36D0F92230FD6E000B57D13 /* UIToolbar+Extension.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				C3FF2BB2223B835D003E658C /* String+Extensions.swift in Sources */,
 				C3FF2BB5223B835D003E658C /* UIFont+Extensions.swift in Sources */,
 				C3BF8FB8224CC8E400F1BD0C /* GXRunLoopThread.swift in Sources */,
+				C36D0F93230FD6E000B57D13 /* UIToolbar+Extension.swift in Sources */,
 				C328BB5F227D506100C33BBF /* GXUIKitExtensions.swift in Sources */,
 				C3251972223E513D00029C0E /* UIImageView+Extensions.swift in Sources */,
 				C3FF2BB4223B835D003E658C /* CGFloat+Extensions.swift in Sources */,

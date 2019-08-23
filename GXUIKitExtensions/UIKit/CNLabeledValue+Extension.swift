@@ -12,21 +12,42 @@ import Contacts
 extension CNLabeledValue where ValueType == CNPhoneNumber {
     public var plainLabelString: String? {
         guard let labelString = self.label else { return nil }
-        return CNLabeledValueLabelToPlainString(labelString) ?? labelString
+        if labelString.count > 0 {
+            return CNLabeledValueLabelToPlainString(labelString) ??  labelString
+        }
+        return labelString
     }
 }
 extension CNLabeledValue where ValueType == NSString {
     public var plainLabelString: String? {
         guard let labelString = self.label else { return nil }
-        return CNLabeledValueLabelToPlainString(labelString) ?? labelString
+        if labelString.count > 0 {
+            return CNLabeledValueLabelToPlainString(labelString) ??  labelString
+        }
+        return labelString
     }
 }
+
+extension CNLabeledValue where ValueType == NSDateComponents {
+    public var plainLabelString: String? {
+        guard let labelString = self.label else { return nil }
+        if labelString.count > 0 {
+            return CNLabeledValueLabelToPlainString(labelString) ??  labelString
+        }
+        return labelString
+    }
+}
+
+
 
 //CNPostalAddress
 extension CNLabeledValue where ValueType == CNPostalAddress {
     public var plainLabelString: String? {
         guard let labelString = self.label else { return nil }
-        return CNLabeledValueLabelToPlainString(labelString) ?? labelString
+        if labelString.count > 0 {
+            return CNLabeledValueLabelToPlainString(labelString) ??  labelString
+        }
+        return labelString
     }
 }
 
@@ -128,9 +149,9 @@ func CNLabeledValueLabelToPlainString(_ labelString:String ) -> String?  {
             return "CNLabelContactRelationWife";
         }
         else if labelString == CNLabelContactRelationHusband {
-            return "CNLabelContactRelationWife";
+            return "CNLabelContactRelationHusband";
         }
     }
-    LOGE("Unknown CNLabeledValue label :\(labelString)")
+    LOGE("Unknown CNLabeledValue label :\(labelString)  count:\(labelString.count)")
     return nil
 }

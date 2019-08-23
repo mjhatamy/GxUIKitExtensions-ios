@@ -13,10 +13,12 @@ public extension UIFont {
     static private(set) var SFProTextRegularFont_IsRegistered:Bool = false
     static private(set) var SFProTextSemiBoldFont_IsRegistered:Bool = false
     static private(set) var SFProTextBoldFont_IsRegistered:Bool = false
+    
     internal static func registerFontIfRequired(withFilenameString filenameString: String, fileExtension:String) -> Bool {
+        let bundle = Bundle(for: GXUIKitExtensions.self)
         
         guard
-            let bundle = Bundle(identifier: "com.mygix.GXUIKitExtensions"),
+             //Bundle(identifier: "com.mygix.GXUIKitExtensions"),
             let pathForResourceString = bundle.path(forResource: filenameString, ofType: fileExtension) else {
                 LOGE("UIFont+:  Failed to register font - path for resource: \(filenameString).\(fileExtension) not found.")
             return false
@@ -40,6 +42,7 @@ public extension UIFont {
         var errorRef: Unmanaged<CFError>? = nil
         if (CTFontManagerRegisterGraphicsFont(font, &errorRef) == false) {
             LOGE("UIFont+:  Failed to register font - register graphics font failed - this font may have already been registered in the main bundle.")
+            errorRef?.release()
             return false
         }else{
             return true
@@ -47,20 +50,34 @@ public extension UIFont {
     }
     
     class func SFProTextLightFont(_ size: CGFloat = 12) -> UIFont?{
-        if !UIFont.SFProTextLightFont_IsRegistered { UIFont.SFProTextLightFont_IsRegistered = UIFont.registerFontIfRequired(withFilenameString: "SF-Pro-Text-Light", fileExtension: "otf") }
-        return UIFont.init(name: "SFProText-Light", size: size); }
+        guard let font = UIFont.init(name: "SFProText-Light", size: size) else{
+            if !UIFont.SFProTextLightFont_IsRegistered { UIFont.SFProTextLightFont_IsRegistered = UIFont.registerFontIfRequired(withFilenameString: "SF-Pro-Text-Light", fileExtension: "otf") }
+            return UIFont.init(name: "SFProText-Light", size: size);
+        }
+        return font }
     
     class func SFProTextRegularFont(_ size: CGFloat = 12) -> UIFont?{
-        if !UIFont.SFProTextRegularFont_IsRegistered { UIFont.SFProTextRegularFont_IsRegistered = UIFont.registerFontIfRequired(withFilenameString: "SF-Pro-Text-Regular", fileExtension: "otf") }
-        return UIFont.init(name: "SFProText-Regular", size: size); }
+        guard let font = UIFont.init(name: "SFProText-Regular", size: size) else{
+            if !UIFont.SFProTextRegularFont_IsRegistered { UIFont.SFProTextRegularFont_IsRegistered = UIFont.registerFontIfRequired(withFilenameString: "SF-Pro-Text-Regular", fileExtension: "otf") }
+            return UIFont.init(name: "SFProText-Regular", size: size);
+        }
+        return font
+    }
     
     class func SFProTextSemiBoldFont(_ size: CGFloat = 12) -> UIFont?{
-        if !UIFont.SFProTextSemiBoldFont_IsRegistered { UIFont.SFProTextSemiBoldFont_IsRegistered = UIFont.registerFontIfRequired(withFilenameString: "SF-Pro-Text-Semibold", fileExtension: "otf") }
-        return UIFont.init(name: "SFProText-Semibold", size: size); }
+        guard let font = UIFont.init(name: "SFProText-Semibold", size: size) else{
+            if !UIFont.SFProTextSemiBoldFont_IsRegistered { UIFont.SFProTextSemiBoldFont_IsRegistered = UIFont.registerFontIfRequired(withFilenameString: "SF-Pro-Text-Semibold", fileExtension: "otf") }
+            return UIFont.init(name: "SFProText-Semibold", size: size);
+        }
+        return font }
     
     class func SFProTextBoldFont(_ size: CGFloat = 12) -> UIFont?{
-        if !UIFont.SFProTextBoldFont_IsRegistered { UIFont.SFProTextBoldFont_IsRegistered = UIFont.registerFontIfRequired(withFilenameString: "SF-Pro-Text-Bold", fileExtension: "otf") }
-        return UIFont.init(name: "SFProText-bold", size: size); }
+        guard let font = UIFont.init(name: "SFProText-bold", size: size) else{
+            if !UIFont.SFProTextBoldFont_IsRegistered { UIFont.SFProTextBoldFont_IsRegistered = UIFont.registerFontIfRequired(withFilenameString: "SF-Pro-Text-Bold", fileExtension: "otf") }
+            return UIFont.init(name: "SFProText-bold", size: size);
+        }
+        return font;
+    }
     
     class var footnoteBold2:UIFont    { return UIFont.SFProTextSemiBoldFont(13) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.footnote) }
     class var footnoteBold3:UIFont    { return UIFont.SFProTextSemiBoldFont(12) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.footnote) }
