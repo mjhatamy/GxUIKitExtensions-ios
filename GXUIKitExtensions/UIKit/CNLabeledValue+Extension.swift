@@ -144,7 +144,6 @@ func CNLabeledValueLabelToPlainString(_ labelString:String ) -> String?  {
         else if labelString == CNLabelContactRelationYoungestSister {
             return "CNLabelContactRelationYoungestSister";
         }
-        
         else if labelString == CNLabelContactRelationWife {
             return "CNLabelContactRelationWife";
         }
@@ -152,6 +151,13 @@ func CNLabeledValueLabelToPlainString(_ labelString:String ) -> String?  {
             return "CNLabelContactRelationHusband";
         }
     }
-    LOGE("Unknown CNLabeledValue label :\(labelString)  count:\(labelString.count)")
+    if labelString == "_$!<Car>!$_" {
+        return "Car"
+    } else if labelString == "_$!<Radio>!$_" {
+        return "Radio"
+    }
+    if labelString.hasPrefix("_$") {
+        LOGE("Unknown CNLabeledValue label :\(labelString)  count:\(labelString.count)")
+    }
     return nil
 }

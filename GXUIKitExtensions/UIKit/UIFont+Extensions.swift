@@ -109,6 +109,7 @@ public extension UIFont {
     class var footnote2:UIFont       { return UIFont.SFProTextRegularFont(14) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.footnote) }
     class var footnoteBold:UIFont   { return UIFont.SFProTextSemiBoldFont(13) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.footnote) }
     class var subhead:UIFont        { return UIFont.SFProTextRegularFont(15) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.subheadline) }
+     class var subheadSemiBold:UIFont        { return UIFont.SFProTextSemiBoldFont(15) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.subheadline) }
     class var subhead2:UIFont        { return UIFont.SFProTextRegularFont(16) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.subheadline) }
     class var subheadLight:UIFont        { return UIFont.SFProTextLightFont(15) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.subheadline) }
     class var subhead3:UIFont        { return UIFont.SFProTextRegularFont(17) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.subheadline) }
