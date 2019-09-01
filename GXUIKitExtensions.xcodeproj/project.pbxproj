@@ -17,6 +17,18 @@
 		C33FC5EA22571B0C0080D6FF /* NSRegularExpression+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33FC5E922571B0C0080D6FF /* NSRegularExpression+Extensions.swift */; };
 		C36D0F93230FD6E000B57D13 /* UIToolbar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D0F92230FD6E000B57D13 /* UIToolbar+Extension.swift */; };
 		C38210BE231768A200371741 /* GxTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38210BD231768A200371741 /* GxTableDataSource.swift */; };
+		C38210C02317E34400371741 /* DispatchQueue+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38210BF2317E34400371741 /* DispatchQueue+Extension.swift */; };
+		C38210C423188FEC00371741 /* GxQRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38210C323188FEC00371741 /* GxQRCode.swift */; };
+		C38210D02318A97F00371741 /* QRCodeReaderResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38210C62318A97F00371741 /* QRCodeReaderResult.swift */; };
+		C38210D12318A97F00371741 /* SwitchCameraButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38210C72318A97F00371741 /* SwitchCameraButton.swift */; };
+		C38210D22318A97F00371741 /* QRCodeReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38210C82318A97F00371741 /* QRCodeReader.swift */; };
+		C38210D32318A97F00371741 /* QRCodeReaderViewControllerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38210C92318A97F00371741 /* QRCodeReaderViewControllerBuilder.swift */; };
+		C38210D42318A97F00371741 /* QRCodeReaderViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38210CA2318A97F00371741 /* QRCodeReaderViewControllerDelegate.swift */; };
+		C38210D52318A97F00371741 /* QRCodeReaderViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38210CB2318A97F00371741 /* QRCodeReaderViewContainer.swift */; };
+		C38210D62318A97F00371741 /* QRCodeReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38210CC2318A97F00371741 /* QRCodeReaderView.swift */; };
+		C38210D72318A97F00371741 /* QRCodeReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38210CD2318A97F00371741 /* QRCodeReaderViewController.swift */; };
+		C38210D82318A97F00371741 /* ReaderOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38210CE2318A97F00371741 /* ReaderOverlayView.swift */; };
+		C38210D92318A97F00371741 /* ToggleTorchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38210CF2318A97F00371741 /* ToggleTorchButton.swift */; };
 		C3960CE52288EAB50008AB73 /* SF-Pro-Text-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = C3960CE42288EA150008AB73 /* SF-Pro-Text-Light.otf */; };
 		C3AE35E32258295F009994FF /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AE35E22258295F009994FF /* Date+Extension.swift */; };
 		C3BA8F92224D88B500D6A9CB /* GXQueueFifoThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BA8F91224D88B500D6A9CB /* GXQueueFifoThread.swift */; };
@@ -66,6 +78,18 @@
 		C33FC5E922571B0C0080D6FF /* NSRegularExpression+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSRegularExpression+Extensions.swift"; sourceTree = "<group>"; };
 		C36D0F92230FD6E000B57D13 /* UIToolbar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIToolbar+Extension.swift"; sourceTree = "<group>"; };
 		C38210BD231768A200371741 /* GxTableDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GxTableDataSource.swift; sourceTree = "<group>"; };
+		C38210BF2317E34400371741 /* DispatchQueue+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Extension.swift"; sourceTree = "<group>"; };
+		C38210C323188FEC00371741 /* GxQRCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GxQRCode.swift; sourceTree = "<group>"; };
+		C38210C62318A97F00371741 /* QRCodeReaderResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeReaderResult.swift; sourceTree = "<group>"; };
+		C38210C72318A97F00371741 /* SwitchCameraButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchCameraButton.swift; sourceTree = "<group>"; };
+		C38210C82318A97F00371741 /* QRCodeReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeReader.swift; sourceTree = "<group>"; };
+		C38210C92318A97F00371741 /* QRCodeReaderViewControllerBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeReaderViewControllerBuilder.swift; sourceTree = "<group>"; };
+		C38210CA2318A97F00371741 /* QRCodeReaderViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeReaderViewControllerDelegate.swift; sourceTree = "<group>"; };
+		C38210CB2318A97F00371741 /* QRCodeReaderViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeReaderViewContainer.swift; sourceTree = "<group>"; };
+		C38210CC2318A97F00371741 /* QRCodeReaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeReaderView.swift; sourceTree = "<group>"; };
+		C38210CD2318A97F00371741 /* QRCodeReaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeReaderViewController.swift; sourceTree = "<group>"; };
+		C38210CE2318A97F00371741 /* ReaderOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReaderOverlayView.swift; sourceTree = "<group>"; };
+		C38210CF2318A97F00371741 /* ToggleTorchButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleTorchButton.swift; sourceTree = "<group>"; };
 		C3960CE42288EA150008AB73 /* SF-Pro-Text-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Light.otf"; sourceTree = "<group>"; };
 		C3AE35E22258295F009994FF /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		C3BA8F91224D88B500D6A9CB /* GXQueueFifoThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GXQueueFifoThread.swift; sourceTree = "<group>"; };
@@ -150,10 +174,28 @@
 			path = GxKit;
 			sourceTree = "<group>";
 		};
+		C38210C52318A8AF00371741 /* QRCodeReader */ = {
+			isa = PBXGroup;
+			children = (
+				C38210C82318A97F00371741 /* QRCodeReader.swift */,
+				C38210C62318A97F00371741 /* QRCodeReaderResult.swift */,
+				C38210CC2318A97F00371741 /* QRCodeReaderView.swift */,
+				C38210CB2318A97F00371741 /* QRCodeReaderViewContainer.swift */,
+				C38210CD2318A97F00371741 /* QRCodeReaderViewController.swift */,
+				C38210C92318A97F00371741 /* QRCodeReaderViewControllerBuilder.swift */,
+				C38210CA2318A97F00371741 /* QRCodeReaderViewControllerDelegate.swift */,
+				C38210CE2318A97F00371741 /* ReaderOverlayView.swift */,
+				C38210C72318A97F00371741 /* SwitchCameraButton.swift */,
+				C38210CF2318A97F00371741 /* ToggleTorchButton.swift */,
+			);
+			path = QRCodeReader;
+			sourceTree = "<group>";
+		};
 		C3C029C922F94BC200BD16AE /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				C3C029CA22F94BD600BD16AE /* GxPDFGenerator.swift */,
+				C38210C323188FEC00371741 /* GxQRCode.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -181,6 +223,7 @@
 		C3FF2B8D223B8331003E658C /* GXUIKitExtensions */ = {
 			isa = PBXGroup;
 			children = (
+				C38210C52318A8AF00371741 /* QRCodeReader */,
 				C38210BC2317688400371741 /* GxKit */,
 				C3C029C922F94BC200BD16AE /* Utils */,
 				C3238CC9226F04390038EDCE /* AVFoundation */,
@@ -227,6 +270,7 @@
 				C3C029C722F948F600BD16AE /* WKWebView+Extension.swift */,
 				C3FDCD60230CCFDF00507EEC /* CNLabeledValue+Extension.swift */,
 				C36D0F92230FD6E000B57D13 /* UIToolbar+Extension.swift */,
+				C38210BF2317E34400371741 /* DispatchQueue+Extension.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -347,8 +391,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3FF2BB2223B835D003E658C /* String+Extensions.swift in Sources */,
+				C38210D62318A97F00371741 /* QRCodeReaderView.swift in Sources */,
+				C38210C02317E34400371741 /* DispatchQueue+Extension.swift in Sources */,
+				C38210D92318A97F00371741 /* ToggleTorchButton.swift in Sources */,
 				C3FF2BB5223B835D003E658C /* UIFont+Extensions.swift in Sources */,
+				C38210D82318A97F00371741 /* ReaderOverlayView.swift in Sources */,
 				C3BF8FB8224CC8E400F1BD0C /* GXRunLoopThread.swift in Sources */,
+				C38210D12318A97F00371741 /* SwitchCameraButton.swift in Sources */,
 				C36D0F93230FD6E000B57D13 /* UIToolbar+Extension.swift in Sources */,
 				C38210BE231768A200371741 /* GxTableDataSource.swift in Sources */,
 				C328BB5F227D506100C33BBF /* GXUIKitExtensions.swift in Sources */,
@@ -358,13 +407,19 @@
 				C3FF2BB1223B835D003E658C /* UIViewController+Extensions.swift in Sources */,
 				C3FA3C5B2254D161002AD7A9 /* NSAttributedString+Extensions.swift in Sources */,
 				C3BA8F92224D88B500D6A9CB /* GXQueueFifoThread.swift in Sources */,
+				C38210D42318A97F00371741 /* QRCodeReaderViewControllerDelegate.swift in Sources */,
+				C38210C423188FEC00371741 /* GxQRCode.swift in Sources */,
 				C33FC5EA22571B0C0080D6FF /* NSRegularExpression+Extensions.swift in Sources */,
+				C38210D72318A97F00371741 /* QRCodeReaderViewController.swift in Sources */,
+				C38210D02318A97F00371741 /* QRCodeReaderResult.swift in Sources */,
 				C3FDCD61230CCFDF00507EEC /* CNLabeledValue+Extension.swift in Sources */,
 				C3FF2BB0223B835D003E658C /* UIImage+Extensions.swift in Sources */,
+				C38210D32318A97F00371741 /* QRCodeReaderViewControllerBuilder.swift in Sources */,
 				C3238CCB226F044F0038EDCE /* AVAudioSession+Extension.swift in Sources */,
 				C3C678B92275B5F6000CE449 /* Bundle+Extension.swift in Sources */,
 				C3FF2BC1223B8B86003E658C /* UIDevice+Extensions.swift in Sources */,
 				C3C678B42275A7AC000CE449 /* Data+Extension.swift in Sources */,
+				C38210D52318A97F00371741 /* QRCodeReaderViewContainer.swift in Sources */,
 				C32CC6552244B66300580902 /* UINavigationController+Extensions.swift in Sources */,
 				C3C029C822F948F600BD16AE /* WKWebView+Extension.swift in Sources */,
 				C3FF2BAE223B835D003E658C /* URL+Extensions.swift in Sources */,
@@ -372,6 +427,7 @@
 				C3FF2BB9223B886C003E658C /* Globals.swift in Sources */,
 				C3AE35E32258295F009994FF /* Date+Extension.swift in Sources */,
 				C3FF2BBF223B89DE003E658C /* Collection+Extension.swift in Sources */,
+				C38210D22318A97F00371741 /* QRCodeReader.swift in Sources */,
 				C3C029CB22F94BD600BD16AE /* GxPDFGenerator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

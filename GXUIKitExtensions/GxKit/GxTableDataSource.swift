@@ -9,24 +9,104 @@
 import UIKit
 import RxSwift
 
-public struct GxTableSectionIdAndOrderModel: Equatable {
-    public let order:Int
-    public let id:String
-    public init( id:String, order:Int ){
-        self.id = id;
+fileprivate struct GxTableRootItemOrderIdModel: Equatable, Comparable {
+    fileprivate let order:Int
+    fileprivate let rootId:String
+    
+    fileprivate init(order:Int, rootId:String) {
         self.order = order;
+        self.rootId = rootId;
+    }
+    
+    public static func == (lhs: GxTableRootItemOrderIdModel, rhs: GxTableRootItemOrderIdModel) -> Bool {
+      return lhs.order == rhs.order && lhs.rootId == rhs.rootId
+    }
+    /// CompareAble
+    public static func < (lhs: GxTableRootItemOrderIdModel, rhs: GxTableRootItemOrderIdModel) -> Bool {
+        return lhs.order < rhs.order
     }
 }
 
-extension Array where Iterator.Element == GxTableDataSourceModel {
+/**
+ Order defines section for Main Section Types usually.
+  When subId is available, then it will define an inner item. but there is no order for it.
+    - parameters:
+        - order: defines the order of the item in a section.
+        - id: defines the Id of a section
+        - subId: subId of the Item. if defined. items with SubId could may share same id
+ */
+public class GxTableItemOrderAndIdType: Equatable, Comparable, CustomStringConvertible {
+    public let order:Int
+    public let rootId:String
+    public let itemId:String
+    public init( rootId:String, order:Int, itemId:String? = nil ){
+        self.rootId = rootId;
+        self.order = order;
+        self.itemId = itemId ?? rootId;
+    }
+    public var isRootElement:Bool {
+        return self.rootId == self.itemId;
+    }
+    
+    public static func == (lhs: GxTableItemOrderAndIdType, rhs: GxTableItemOrderAndIdType) -> Bool {
+      return lhs.order == rhs.order && lhs.rootId == rhs.rootId && lhs.itemId == rhs.itemId
+    }
+    /// CompareAble
+    public static func < (lhs: GxTableItemOrderAndIdType, rhs: GxTableItemOrderAndIdType) -> Bool {
+        return lhs.order < rhs.order
+    }
+    public var description: String {
+        return " <class:\(GxTableItemOrderAndIdType.self) order:\(self.order) rootId:\(self.rootId) itemId:\(self.itemId)>"
+    }
+}
+
+extension Array where Iterator.Element == GxTableDataSourceRootItemModel {
     fileprivate func indexForSectionId(_ sectionId:String) -> Int? {
         let index = self.firstIndex { (items) -> Bool in
-            return items.sectionOrder.id == sectionId;
+            return items.sectionOrder.rootId == sectionId;
         }
         return index;
     }
     
-    fileprivate func findSectionForNewItemToInsert(_ compareSection:GxTableSectionIdAndOrderModel) -> Int {
+    fileprivate func sectionFor(rootId:String) -> Int?{
+        let index = self.firstIndex { (items) -> Bool in
+            return items.sectionOrder.rootId == rootId;
+        }
+        return index;
+    }
+    
+    fileprivate func indexPathFor( type:GxTableItemOrderAndIdType) -> IndexPath? {
+        guard let section = self.sectionFor(rootId: type.rootId) else {
+            return nil
+        }
+        guard let row = self[section].values.firstIndex(where: { $0.type.itemId == type.itemId}) else{
+            return nil
+        }
+        return IndexPath(row: row, section: section)
+    }
+    
+    fileprivate func rootItemAt(section:Int) -> GxTableDataSourceRootItemModel? {
+        return self[safe: section]
+    }
+    
+    fileprivate func valuesAt(section:Int) -> [GxDataSourceItemModel]? {
+        return self.rootItemAt(section: section)?.values
+    }
+    
+    fileprivate func itemAt(indexPath:IndexPath) -> GxDataSourceItemModel? {
+        return self[safe: indexPath.section]?.values[safe: indexPath.row]
+    }
+    
+    /// If successfull, it will return removed element or null if nothing removed
+    fileprivate func removeItemAt(indexPath:IndexPath) -> GxDataSourceItemModel? {
+        return self.rootItemAt(section: indexPath.section)?.values.remove(at: indexPath.row)
+    }
+    
+    fileprivate func typeAt(indexPath:IndexPath) -> GxTableItemOrderAndIdType?{
+        return self.itemAt(indexPath: indexPath)?.type
+    }
+    
+    fileprivate func findSectionForNewItemToInsert(_ compareSection:GxTableItemOrderAndIdType) -> Int {
         var newIndex:Int = 0
         for (index, item) in self.enumerated() {
             if compareSection.order > item.sectionOrder.order {
@@ -37,25 +117,53 @@ extension Array where Iterator.Element == GxTableDataSourceModel {
     }
 }
 
-extension Array where Iterator.Element == GxTableSectionIdAndOrderModel {
-    fileprivate func find(_ sectionId:String) -> GxTableSectionIdAndOrderModel? {
-        return self.first(where: { return $0.id == sectionId } )
+extension Array where Iterator.Element == GxTableItemOrderAndIdType {
+    fileprivate func find(_ sectionId:String) -> GxTableItemOrderAndIdType? {
+        return self.first(where: { return $0.rootId == sectionId } )
+    }
+    
+    fileprivate func find(_ section:GxTableItemOrderAndIdType) -> GxTableItemOrderAndIdType? {
+        return self.first(where: { return ($0.rootId == section.rootId && $0.order == section.order && $0.itemId == section.itemId )})
     }
 }
 
-fileprivate class GxTableDataSourceModel{
-    var values:[Any] = [Any]();
-    let sectionOrder:GxTableSectionIdAndOrderModel
-    init(_ sectionOrder:GxTableSectionIdAndOrderModel, initialItem:Any) {
+extension Array where Iterator.Element == GxDataSourceItemModel {
+    fileprivate func indexFor(itemId:String) -> Int? {
+        return self.firstIndex(where: { $0.type.itemId == itemId });
+    }
+}
+
+
+public class GxDataSourceItemModel {
+    public let type:GxTableItemOrderAndIdType
+    public let value:Any
+    init(value:Any, type:GxTableItemOrderAndIdType) {
+        self.value = value;
+        self.type = type;
+    }
+}
+
+fileprivate class GxTableDataSourceRootItemModel{
+    var values:[GxDataSourceItemModel] = [GxDataSourceItemModel]();
+    let sectionOrder:GxTableRootItemOrderIdModel
+    init(_ sectionOrder:GxTableRootItemOrderIdModel, initialItem:GxDataSourceItemModel) {
         self.sectionOrder = sectionOrder
         self.values.append(initialItem)
     }
 }
 
+public struct GxMoveIndexPath {
+    public let from:IndexPath
+    public let to:IndexPath
+}
+
 public struct GxDataSourceChangesSet {
-    let insertions:[IndexPath]
-    let deletions:[IndexPath]
-    let modifications:[IndexPath]
+    public let insertions:[IndexPath]
+    public let deletions:[IndexPath]
+    public let modifications:[IndexPath]
+    public let moved:[GxMoveIndexPath]
+    public let insertedSections:IndexSet
+    public let deletedSections:IndexSet
 }
 
 public enum GxTableDataSourceError:Error {
@@ -66,15 +174,13 @@ public enum GxTableDataSourceError:Error {
 }
 
 public class GxTableDataSource {
-    
     private var changeSetSubject:PublishSubject<GxDataSourceChangesSet> = PublishSubject<GxDataSourceChangesSet>();
     public var changesObservable:Observable<GxDataSourceChangesSet> {
         return changeSetSubject.asObserver()
     }
     /// SectionId: Int , Values: Array
-    private var values:[GxTableDataSourceModel] = [GxTableDataSourceModel]();
-    
-    fileprivate var tableSectionOrderAndIds:[GxTableSectionIdAndOrderModel] = [GxTableSectionIdAndOrderModel]();
+    private var values:[GxTableDataSourceRootItemModel] = [GxTableDataSourceRootItemModel]();
+    fileprivate var tableSectionOrderAndIds:[GxTableItemOrderAndIdType] = [GxTableItemOrderAndIdType]();
     
     /**
         Initialize GxTableDataSource using Section Order Names and order of the ids , defines their order in the Data Source or better call it , Section Id.
@@ -85,32 +191,31 @@ public class GxTableDataSource {
         assert(sectionOrderedIds.count > 0, "At least one section must be entered to initialize");
         pthread_mutex_init(&self.transactionMutexLock, nil)
         for (index, item) in sectionOrderedIds.enumerated() {
-            self.tableSectionOrderAndIds.append(GxTableSectionIdAndOrderModel(id: item, order: index));
+            self.tableSectionOrderAndIds.append(GxTableItemOrderAndIdType(rootId: item, order: index));
         }
     }
     
-    public init( sectionOrderedIds:[GxTableSectionIdAndOrderModel] ) {
+    public init( sectionOrderedIds:[GxTableItemOrderAndIdType] ) {
         assert(sectionOrderedIds.count > 0, "At least one section must be entered to initialize");
         pthread_mutex_init(&self.transactionMutexLock, nil)
         self.tableSectionOrderAndIds = sectionOrderedIds;
     }
     
     deinit {
+        self.values.removeAll()
         pthread_mutex_destroy(&self.transactionMutexLock)
     }
     
-    public func getItem<T>(for indexPath:IndexPath) -> T? {
+    public func getItem(for indexPath:IndexPath) -> GxDataSourceItemModel? {
         if indexPath.section > self.values.count {
             LOGE("IndexPath.section:\(indexPath.section) out of bound")
             return nil
         }
-        
         if indexPath.row > self.values[indexPath.section].values.count {
             LOGE("IndexPath.row:\(indexPath.row) out of bound for section:\(indexPath.section)")
             return nil
         }
-        
-        return self.values[indexPath.section].values[indexPath.section] as? T
+        return self.values[indexPath.section].values[indexPath.row]
     }
     
     public func getSectionId(for section:Int) -> String?{
@@ -118,7 +223,7 @@ public class GxTableDataSource {
             LOGE("IndexPath.section:\(section) out of bound")
             return nil
         }
-        return self.values[section].sectionOrder.id
+        return self.values[section].sectionOrder.rootId
     }
     
     
@@ -143,106 +248,141 @@ public class GxTableDataSource {
         var insertions = [IndexPath] ()
         var deletions = [IndexPath]()
         var modifications = [IndexPath]()
-        for item in transactionChangeSet {
+        var moved = [GxMoveIndexPath]();
+        let insertedSections:NSMutableIndexSet = NSMutableIndexSet()
+        let deletedSections:NSMutableIndexSet = NSMutableIndexSet();
+        for item in self.transactionChangeSet {
             insertions.append(contentsOf: item.insertions)
             deletions.append(contentsOf: item.deletions)
             modifications.append(contentsOf: item.modifications)
+            moved.append(contentsOf: item.moved)
+            insertedSections.add(item.insertedSections)
+            deletedSections.add(item.deletedSections)
         }
-        self.changeSetSubject.onNext(GxDataSourceChangesSet(insertions: insertions, deletions: deletions, modifications: modifications))
+        self.changeSetSubject.onNext(GxDataSourceChangesSet(insertions: insertions, deletions: deletions, modifications: modifications, moved: moved, insertedSections: insertedSections as IndexSet, deletedSections: deletedSections as IndexSet))
+        self.transactionChangeSet.removeAll()
     }
     
-    public func append( _ item:Any, _ sectionId:String) throws {
+    public func append( _ item:Any, _ sectionId:GxTableItemOrderAndIdType) throws {
         let changes = try self._append(item, sectionId)
         self.transactionChangeSet.append(changes)
     }
     
-    public func remove( _ itemRowIndex:Int, _ sectionId:String ) throws {
-        let changes = try self._remove(itemRowIndex, sectionId)
+    @discardableResult
+    public func remove( _ indexPath:IndexPath, deleteSection:Bool = false) throws -> Bool {
+        guard let changes = try self._remove(indexPath, deleteSection:deleteSection) else{
+            return false
+        }
         self.transactionChangeSet.append(changes)
+        return true;
+    }
+    
+    public func remove( _ type:GxTableItemOrderAndIdType , deleteSection:Bool = false) throws -> Bool {
+        guard let indexPath:IndexPath = self.values.indexPathFor(type: type) else {
+            LOGE("No Item found for Item of type:\(type)");
+            return false;
+        }
+        return try self.remove(indexPath, deleteSection: deleteSection);
     }
     
     
-    private func _append( _ item:Any, _ sectionId:String) throws -> GxDataSourceChangesSet {
+    private func _append( _ item:Any, _ sectionId:GxTableItemOrderAndIdType) throws -> GxDataSourceChangesSet {
         /// if this item already exist, append to the array and return, if no sectionIdAndOrders Entered, then 0
-        guard let sectionIdAndOrder:GxTableSectionIdAndOrderModel = self.tableSectionOrderAndIds.find(sectionId) else {
-            throw GxTableDataSourceError.AppendError(reason: "No section found for sectionId: \(sectionId) in tableSectionOrderAndIds")
+        guard let sectionIdAndOrder:GxTableItemOrderAndIdType = self.tableSectionOrderAndIds.find(sectionId) else {
+            throw GxTableDataSourceError.AppendError(reason: "No section found for sectionId: \(sectionId) subId:\(sectionId.itemId) in tableSectionOrderAndIds")
         }
         
-        if let sectionIndexForExisting:Int = self.values.indexForSectionId(sectionId) {
-            self.values[sectionIndexForExisting].values.append(item)
+        if let sectionIndexForExisting:Int = self.values.sectionFor(rootId: sectionId.rootId) {
+            self.values[sectionIndexForExisting].values.append(GxDataSourceItemModel(value: item, type: sectionId))
             let rowIndex:Int = self.values[sectionIndexForExisting].values.count - 1;
-            return GxDataSourceChangesSet(insertions: [IndexPath(row: rowIndex, section: sectionIndexForExisting)], deletions: [], modifications: []);
+            return GxDataSourceChangesSet(insertions: [IndexPath(row: rowIndex, section: sectionIndexForExisting)], deletions: [], modifications: [], moved: [], insertedSections: [], deletedSections: []);
         }
         
         /// find first Item order and id
         let IndexToInsert = self.values.findSectionForNewItemToInsert(sectionIdAndOrder)
         
         /// Generate Move ChangeSet for Items after this Index
-        let changeSet = self.makeChangeSetForInsertActionOn(section: IndexToInsert)
+        let changeSet = self.onSectionInsert(section: IndexToInsert)
         
-        self.values.insert(GxTableDataSourceModel(sectionIdAndOrder, initialItem: item), at: IndexToInsert)
+        self.values.insert(GxTableDataSourceRootItemModel(GxTableRootItemOrderIdModel(order: sectionId.order, rootId: sectionId.rootId), initialItem: GxDataSourceItemModel(value: item, type: sectionId)), at: IndexToInsert)
         var insertions:[IndexPath] = [IndexPath]();
         insertions.append(IndexPath(row: 0, section: IndexToInsert))
         insertions.append(contentsOf: changeSet.insertions)
         
-        return GxDataSourceChangesSet(insertions: insertions, deletions: changeSet.deletions, modifications: changeSet.modifications);
+        ///var deletions:[IndexPath] = [IndexPath]();
+        
+        return GxDataSourceChangesSet(insertions: insertions, deletions: changeSet.deletions, modifications: changeSet.modifications, moved: changeSet.moved, insertedSections: changeSet.insertedSections, deletedSections: changeSet.deletedSections);
     }
     
-    
-    
-    private func _remove( _ itemRowIndex:Int, _ sectionId:String ) throws -> GxDataSourceChangesSet {
-        guard let sectionIndexForExisting:Int = self.values.indexForSectionId(sectionId) else {
-            throw GxTableDataSourceError.NotFound(reason: "No Item found for sectionId: \(sectionId) in tableSectionOrderAndIds")
+    private func _remove( _ indexPath:IndexPath, deleteSection:Bool = false ) throws -> GxDataSourceChangesSet? {
+        var deleteSection:Bool = deleteSection;
+        if self.values.count < indexPath.section {
+            LOGE("Unable to remove Item at indexPath:\(indexPath). section out of bounds. maximum sections:\(self.values.count)");
+            return nil
         }
-        let itemValues = self.values[sectionIndexForExisting].values;
-        
-        if itemValues.count < itemRowIndex {
-            throw GxTableDataSourceError.IndexOutOfBound(reason: "trying to Remove item for SectionId:\(sectionId) at sectionIndex:\(sectionIndexForExisting) at rowIndex:\(itemRowIndex) failed due to outof bound. available items count:\(itemValues.count)")
-        }
-        
-        /// if section has more than 1 item, then only remove item at indexPath
-        if itemValues.count > 1 {
-            self.values[sectionIndexForExisting].values.remove(at: itemRowIndex)
-            return GxDataSourceChangesSet(insertions: [], deletions: [IndexPath(row: itemRowIndex, section: sectionIndexForExisting)], modifications: []);
+        guard let _ = self.values.itemAt(indexPath: indexPath) else {
+            LOGE("Unable to remove item at indexPath:\(indexPath). Item not found.");
+            return nil
         }
         
-        /// if item as only One Item and we are going to remove this only Item, then remove section as well
-        var deletions:[IndexPath] = [IndexPath]() ;
-        deletions.append(IndexPath(row: itemRowIndex, section: sectionIndexForExisting))
+        /// if only one item is remained in the section, and deleteSection is false, set it to true
+        if !deleteSection { deleteSection = (self.values.rootItemAt(section: indexPath.section)?.values.count ?? 0) <= 1 }
         
-        let changeSet = self.makeChangeSetForRemoveActionOn(section: sectionIndexForExisting)
-        deletions.append(contentsOf: changeSet.deletions)
-        return GxDataSourceChangesSet(insertions: changeSet.insertions, deletions: deletions, modifications: changeSet.modifications);
+        if deleteSection {
+            /// if item as only One Item and we are going to remove this only Item, then remove section as well
+            var deletions:[IndexPath] = [IndexPath]() ;
+            for (index, _) in (self.values[safe: indexPath.section]?.values ?? []).enumerated() {
+                deletions.append(IndexPath(row: index, section: indexPath.section))
+            }
+            self.values[safe:indexPath.section]?.values.removeAll();
+            
+            let changeSet = self.onSectionRemoved(section: indexPath.section)
+            deletions.append(contentsOf: changeSet.deletions)
+            
+            self.values.remove(at: indexPath.section)
+            
+            return GxDataSourceChangesSet(insertions: changeSet.insertions, deletions: deletions, modifications: changeSet.modifications, moved: changeSet.moved, insertedSections: changeSet.insertedSections, deletedSections: changeSet.deletedSections);
+        } else{
+            let item = self.values.removeItemAt(indexPath: indexPath)
+            return GxDataSourceChangesSet(insertions: [], deletions: (item != nil) ? [indexPath] : [], modifications: [], moved: [], insertedSections: [], deletedSections: []);
+        }
     }
     
-    private func makeChangeSetForRemoveActionOn(section sectionIndex:Int) -> GxDataSourceChangesSet {
-        var deletions:[IndexPath] = [IndexPath]()
-        var insertions:[IndexPath] = [IndexPath]()
+    private func onSectionRemoved(section sectionIndex:Int) -> GxDataSourceChangesSet {
+        var moved = [GxMoveIndexPath]();
+        let insertedSections:IndexSet = []
+        let deletedSections:IndexSet = [sectionIndex]
         for (index, item) in self.values.enumerated() {
             if index > sectionIndex {
                 for (itemIndex, _) in item.values.enumerated() {
-                    deletions.append(IndexPath(row: itemIndex, section: index))
-                    insertions.append(IndexPath(row: itemIndex, section: index - 1))
+                    moved.append(GxMoveIndexPath(from: IndexPath(row: itemIndex, section: index), to: IndexPath(row: itemIndex, section: index - 1)))
                 }
             }
         }
-        return GxDataSourceChangesSet(insertions: insertions, deletions: deletions, modifications: [])
+        return GxDataSourceChangesSet(insertions: [], deletions: [], modifications: [], moved: moved, insertedSections: insertedSections, deletedSections: deletedSections)
     }
     
-    private func makeChangeSetForInsertActionOn(section sectionIndex:Int) -> GxDataSourceChangesSet {
-        var deletions:[IndexPath] = [IndexPath]()
-        var insertions:[IndexPath] = [IndexPath]()
+    private func onSectionInsert(section sectionIndex:Int) -> GxDataSourceChangesSet {
+        var moved = [GxMoveIndexPath]();
+        let insertedSections:IndexSet = [sectionIndex]
+        let deletedSections:IndexSet = []
         for (index, item) in self.values.enumerated() {
             if index >= sectionIndex {
                 for (itemIndex, _) in item.values.enumerated() {
-                    deletions.append(IndexPath(row: itemIndex, section: index))
-                    insertions.append(IndexPath(row: itemIndex, section: index + 1))
+                    moved.append(GxMoveIndexPath(from: IndexPath(row: itemIndex, section: index), to: IndexPath(row: itemIndex, section: index + 1)))
                 }
             }
         }
-        return GxDataSourceChangesSet(insertions: insertions, deletions: deletions, modifications: [])
+        return GxDataSourceChangesSet(insertions: [], deletions: [], modifications: [], moved: moved, insertedSections: insertedSections, deletedSections: deletedSections)
     }
     
     public var numberOfSections:Int { return self.values.count }
+    public func numberOfRowsInSection(_ section:Int ) -> Int {
+        guard let count = self.values[safe: section]?.values.count else {
+            LOGE("Section: \(section) not found.");
+            return 0
+        }
+        return count
+    }
     
 }
