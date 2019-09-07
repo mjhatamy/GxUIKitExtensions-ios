@@ -26,7 +26,7 @@ let CountryPhonePrefixCodes = ["AF": "93", "AE": "971", "AL": "355", "AN": "599"
 public extension String{
     static let phoneNumberKit = PhoneNumberKit()
     
-    func attributedString( _ foregroundColor:UIColor, font:UIFont?, alignment:NSTextAlignment? = nil, backgroundColor:UIColor? = nil) -> NSAttributedString{
+    func attributedString( _ foregroundColor:UIColor, font:UIFont?, alignment:NSTextAlignment? = nil, headIndent:CGFloat = 4, backgroundColor:UIColor? = nil) -> NSAttributedString{
         var attributes:[NSAttributedString.Key: Any] = [NSAttributedString.Key: Any]()
         attributes[NSAttributedString.Key.foregroundColor] = foregroundColor
         
@@ -37,7 +37,8 @@ public extension String{
         if let m_alignment:NSTextAlignment = alignment {
             let paragraphStyle = NSMutableParagraphStyle()
             paragraphStyle.alignment = m_alignment
-            
+            //paragraphStyle.headIndent = headIndent
+            //paragraphStyle.tabStops = [NSTextTab.init(textAlignment: .left, location: headIndent, options: [:])]
             attributes[NSAttributedString.Key.paragraphStyle] = paragraphStyle
         }
         
@@ -48,7 +49,7 @@ public extension String{
         return NSAttributedString(string: self, attributes: attributes)
     }
     
-    func attributedStringMutable( _ foregroundColor:UIColor, font:UIFont?, alignment:NSTextAlignment? = nil, backgroundColor:UIColor? = nil) -> NSMutableAttributedString{
+    func attributedStringMutable( _ foregroundColor:UIColor, font:UIFont?, alignment:NSTextAlignment? = nil, headIndent:CGFloat = 4, backgroundColor:UIColor? = nil) -> NSMutableAttributedString{
         var attributes:[NSAttributedString.Key: Any] = [NSAttributedString.Key: Any]()
         attributes[NSAttributedString.Key.foregroundColor] = foregroundColor
         
@@ -59,7 +60,7 @@ public extension String{
         if let m_alignment:NSTextAlignment = alignment {
             let paragraphStyle = NSMutableParagraphStyle()
             paragraphStyle.alignment = m_alignment
-            
+            paragraphStyle.headIndent = headIndent
             attributes[NSAttributedString.Key.paragraphStyle] = paragraphStyle
         }
         
