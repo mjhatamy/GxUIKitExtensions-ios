@@ -18,6 +18,22 @@ extension Date{
         return dateFormatter.string(from: self)
     }
     
+    public func remaningDurationString( _ languageCode:String, tommorowString:String ) -> String{
+        let calendar = Calendar.current;
+        let dateFormatter : DateFormatter = DateFormatter();
+        dateFormatter.dateStyle = .none;
+        dateFormatter.timeStyle = .short;
+        dateFormatter.locale = Locale(identifier: languageCode)
+        if calendar.isDateInToday(self) {
+            return dateFormatter.string(from: self);
+        }
+        if calendar.isDateInTomorrow(self)  {
+            return String(format: "%@ %@", tommorowString.lowercased(), dateFormatter.string(from: self));
+        }
+        dateFormatter.dateStyle = .short;
+        return dateFormatter.string(from: self);
+    }
+    
     /*
      This is a formatted string of call date.
      For Today Calls it displays time like 05:40 AM
