@@ -37,7 +37,7 @@
 		C3960CE52288EAB50008AB73 /* SF-Pro-Text-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = C3960CE42288EA150008AB73 /* SF-Pro-Text-Light.otf */; };
 		C3AE35E32258295F009994FF /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AE35E22258295F009994FF /* Date+Extension.swift */; };
 		C3BA8F92224D88B500D6A9CB /* GXQueueFifoThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BA8F91224D88B500D6A9CB /* GXQueueFifoThread.swift */; };
-		C3BF8FB8224CC8E400F1BD0C /* GXRunLoopThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BF8FB7224CC8E400F1BD0C /* GXRunLoopThread.swift */; };
+		C3BF8FB8224CC8E400F1BD0C /* GxUIRunLoopThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BF8FB7224CC8E400F1BD0C /* GxUIRunLoopThread.swift */; };
 		C3C029C822F948F600BD16AE /* WKWebView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C029C722F948F600BD16AE /* WKWebView+Extension.swift */; };
 		C3C029CB22F94BD600BD16AE /* GxPDFGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C029CA22F94BD600BD16AE /* GxPDFGenerator.swift */; };
 		C3C678B42275A7AC000CE449 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C678B32275A7AC000CE449 /* Data+Extension.swift */; };
@@ -103,7 +103,7 @@
 		C3960CE42288EA150008AB73 /* SF-Pro-Text-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Light.otf"; sourceTree = "<group>"; };
 		C3AE35E22258295F009994FF /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		C3BA8F91224D88B500D6A9CB /* GXQueueFifoThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GXQueueFifoThread.swift; sourceTree = "<group>"; };
-		C3BF8FB7224CC8E400F1BD0C /* GXRunLoopThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GXRunLoopThread.swift; sourceTree = "<group>"; };
+		C3BF8FB7224CC8E400F1BD0C /* GxUIRunLoopThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GxUIRunLoopThread.swift; sourceTree = "<group>"; };
 		C3C029C722F948F600BD16AE /* WKWebView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WKWebView+Extension.swift"; sourceTree = "<group>"; };
 		C3C029CA22F94BD600BD16AE /* GxPDFGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GxPDFGenerator.swift; sourceTree = "<group>"; };
 		C3C678B32275A7AC000CE449 /* Data+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
@@ -262,7 +262,7 @@
 				C3FF2B8E223B8331003E658C /* GXUIKitExtensions.h */,
 				C3FF2B8F223B8331003E658C /* Info.plist */,
 				C3FF2BB8223B886C003E658C /* Globals.swift */,
-				C3BF8FB7224CC8E400F1BD0C /* GXRunLoopThread.swift */,
+				C3BF8FB7224CC8E400F1BD0C /* GxUIRunLoopThread.swift */,
 				C3BA8F91224D88B500D6A9CB /* GXQueueFifoThread.swift */,
 				C328BB5E227D506100C33BBF /* GXUIKitExtensions.swift */,
 			);
@@ -428,7 +428,7 @@
 				C3FF2BB5223B835D003E658C /* UIFont+Extensions.swift in Sources */,
 				C38210D82318A97F00371741 /* ReaderOverlayView.swift in Sources */,
 				C3335F7323206FB90055FCD0 /* GxDataSourceRowSectionOrderedIdType.swift in Sources */,
-				C3BF8FB8224CC8E400F1BD0C /* GXRunLoopThread.swift in Sources */,
+				C3BF8FB8224CC8E400F1BD0C /* GxUIRunLoopThread.swift in Sources */,
 				C38210D12318A97F00371741 /* SwitchCameraButton.swift in Sources */,
 				C36D0F93230FD6E000B57D13 /* UIToolbar+Extension.swift in Sources */,
 				C328BB5F227D506100C33BBF /* GXUIKitExtensions.swift in Sources */,

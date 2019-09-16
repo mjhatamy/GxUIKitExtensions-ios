@@ -10,7 +10,7 @@ import UIKit
 import Foundation
 
 /// FIFO. First-In-First-Out guaranteed on exactly same thread.
-open class GXRunLoopThread: Thread {
+open class GxUIRunLoopThread: Thread {
     
     public typealias ThreadBlock = @convention(block) () -> Void
     
@@ -39,10 +39,10 @@ open class GXRunLoopThread: Thread {
     override open func main() {
         
         // Infinite loops until thread is cancelled
-        
+        RunLoop.current.add(NSMachPort.init(), forMode: RunLoop.Mode.default)
         while (!isCancelled ){
             RunLoop.current.run(mode: RunLoop.Mode.default, before: Date.distantFuture)
-            //LOGD("Run Loop isCancelled:\(isCancelled)")
+            LOGD("Run Loop isCancelled:\(isCancelled)")
          }
  
         /*
@@ -79,6 +79,7 @@ open class GXRunLoopThread: Thread {
         }
         */
     }
+    
     
     
     /**
