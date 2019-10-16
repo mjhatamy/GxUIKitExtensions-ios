@@ -228,9 +228,9 @@ public extension UIImage{
         self.init(named: bundleImageName, in: frameworkBundle, compatibleWith: nil)
     }
     
-    func makeCircularImage(size: CGSize, backgoundColor:UIColor = UIColor.clear) -> UIImage {
+    func makeCircularImage( _ diameter: CGFloat, backgoundColor:UIColor = UIColor.clear) -> UIImage {
         // make a CGRect with the image's size
-        let circleRect = CGRect(origin: .zero, size: size)
+        let circleRect = CGRect(origin: .zero, size: CGSize(width: diameter, height: diameter))
         
         // begin the image context since we're not in a drawRect:
         UIGraphicsBeginImageContextWithOptions(circleRect.size, false, 0)
@@ -332,10 +332,13 @@ public extension UIImage{
     }
     
     var toGrayScale:UIImage? {
-        let context = CIContext(options: nil)
         let currentFilter = CIFilter(name: "CIPhotoEffectNoir")
-        currentFilter!.setValue(CIImage(image: self), forKey: kCIInputImageKey)
+        let ciInput = CIImage(image: self)
+        
+        currentFilter!.setValue(ciInput , forKey: kCIInputImageKey)
         let output = currentFilter!.outputImage
+        
+        let context = CIContext(options: nil)
         let cgimg = context.createCGImage(output!,from: output!.extent)
         let processedImage = UIImage(cgImage: cgimg!)
         return processedImage
