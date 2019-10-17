@@ -230,16 +230,16 @@ public extension String{
         
         let countryDialingCodeString: String? = countryDialingCode == nil ? "" : String(format: "%d", countryDialingCode ?? -1)
         
-        let phoneNumberKit = PhoneNumberKit()
+        //let phoneNumberKit = LibPhoneNumberKit()
         do {
-            let m_phoneNumber = try phoneNumberKit.parse( hasCountryCode ? phoneNumber : "+\(phoneNumber)", withRegion: isoCountryCode ?? PhoneNumberKit.defaultRegionCode() )
+            let m_phoneNumber = try String.phoneNumberKit.parse( hasCountryCode ? phoneNumber : "+\(phoneNumber)", withRegion: isoCountryCode ?? PhoneNumberKit.defaultRegionCode() )
             
-            return phoneNumberKit.format(m_phoneNumber, toType: PhoneNumberFormat.international).deletingPrefix(removeLeadingPlus ? "+" : "")
+            return String.phoneNumberKit.format(m_phoneNumber, toType: PhoneNumberFormat.international).deletingPrefix(removeLeadingPlus ? "+" : "")
         }catch{
             do {
-                let m_phoneNumber = try phoneNumberKit.parse(  "+\(countryDialingCodeString ?? "")\(phoneNumber)", withRegion: isoCountryCode ?? PhoneNumberKit.defaultRegionCode())
+                let m_phoneNumber = try String.phoneNumberKit.parse(  "+\(countryDialingCodeString ?? "")\(phoneNumber)", withRegion: isoCountryCode ?? PhoneNumberKit.defaultRegionCode())
                 LOGI("1---> Unable to format number:\(error) number:\(self)")
-                return phoneNumberKit.format(m_phoneNumber, toType: PhoneNumberFormat.international).deletingPrefix(removeLeadingPlus ? "+" : "")
+                return String.phoneNumberKit.format(m_phoneNumber, toType: PhoneNumberFormat.international).deletingPrefix(removeLeadingPlus ? "+" : "")
             }catch{
                 LOGI("Unable to format number:\(error) number:\(self)")
                 return PartialFormatter().formatPartial(phoneNumber).deletingPrefix(removeLeadingPlus ? "+" : "")

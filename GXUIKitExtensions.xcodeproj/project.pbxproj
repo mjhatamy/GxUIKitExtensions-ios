@@ -6,6 +6,20 @@
 	objectVersion = 50;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		C3DD0FCB23573F53007A4C23 /* Universal-GXUIKitExtensions */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = C3DD0FCE23573F53007A4C23 /* Build configuration list for PBXAggregateTarget "Universal-GXUIKitExtensions" */;
+			buildPhases = (
+				C3DD0FCF23573F5D007A4C23 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = "Universal-GXUIKitExtensions";
+			productName = "Universal-GXUIKitExtensions";
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		C3238CCB226F044F0038EDCE /* AVAudioSession+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3238CCA226F044F0038EDCE /* AVAudioSession+Extension.swift */; };
 		C3251972223E513D00029C0E /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3251971223E513D00029C0E /* UIImageView+Extensions.swift */; };
@@ -31,6 +45,8 @@
 		C38210D92318A97F00371741 /* ToggleTorchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38210CF2318A97F00371741 /* ToggleTorchButton.swift */; };
 		C390A1C523206D4400C56DF9 /* GxDSCommandsQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C390A1C423206D4400C56DF9 /* GxDSCommandsQueue.swift */; };
 		C3AE35E32258295F009994FF /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AE35E22258295F009994FF /* Date+Extension.swift */; };
+		C3AF93CE23571F2E0045C8EE /* PhoneNumberKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3AF93CD23571F2E0045C8EE /* PhoneNumberKit.framework */; };
+		C3AF93CF23571F2E0045C8EE /* PhoneNumberKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C3AF93CD23571F2E0045C8EE /* PhoneNumberKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C3BA8F92224D88B500D6A9CB /* GXQueueFifoThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BA8F91224D88B500D6A9CB /* GXQueueFifoThread.swift */; };
 		C3BF8FB8224CC8E400F1BD0C /* GxUIRunLoopThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BF8FB7224CC8E400F1BD0C /* GxUIRunLoopThread.swift */; };
 		C3C029C822F948F600BD16AE /* WKWebView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C029C722F948F600BD16AE /* WKWebView+Extension.swift */; };
@@ -53,6 +69,20 @@
 		C3FF2BBF223B89DE003E658C /* Collection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FF2BBE223B89DE003E658C /* Collection+Extension.swift */; };
 		C3FF2BC1223B8B86003E658C /* UIDevice+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FF2BC0223B8B86003E658C /* UIDevice+Extensions.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C3AF93D023571F2E0045C8EE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C3AF93CF23571F2E0045C8EE /* PhoneNumberKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		C3238CCA226F044F0038EDCE /* AVAudioSession+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVAudioSession+Extension.swift"; sourceTree = "<group>"; };
@@ -79,6 +109,7 @@
 		C38210CF2318A97F00371741 /* ToggleTorchButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleTorchButton.swift; sourceTree = "<group>"; };
 		C390A1C423206D4400C56DF9 /* GxDSCommandsQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GxDSCommandsQueue.swift; sourceTree = "<group>"; };
 		C3AE35E22258295F009994FF /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		C3AF93CD23571F2E0045C8EE /* PhoneNumberKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhoneNumberKit.framework; path = ../../carthage_frameworks/Carthage/Build/iOS/PhoneNumberKit.framework; sourceTree = "<group>"; };
 		C3BA8F91224D88B500D6A9CB /* GXQueueFifoThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GXQueueFifoThread.swift; sourceTree = "<group>"; };
 		C3BF8FB7224CC8E400F1BD0C /* GxUIRunLoopThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GxUIRunLoopThread.swift; sourceTree = "<group>"; };
 		C3C029C722F948F600BD16AE /* WKWebView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WKWebView+Extension.swift"; sourceTree = "<group>"; };
@@ -109,6 +140,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3AF93CE23571F2E0045C8EE /* PhoneNumberKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,6 +192,14 @@
 			path = DataSourceModels;
 			sourceTree = "<group>";
 		};
+		C3AF93CC23571F2E0045C8EE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C3AF93CD23571F2E0045C8EE /* PhoneNumberKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C3C029C922F94BC200BD16AE /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +222,7 @@
 			children = (
 				C3FF2B8D223B8331003E658C /* GXUIKitExtensions */,
 				C3FF2B8C223B8331003E658C /* Products */,
+				C3AF93CC23571F2E0045C8EE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -262,6 +303,7 @@
 				C3FF2B87223B8331003E658C /* Sources */,
 				C3FF2B88223B8331003E658C /* Frameworks */,
 				C3FF2B89223B8331003E658C /* Resources */,
+				C3AF93D023571F2E0045C8EE /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -282,6 +324,9 @@
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Majid Hatami Aghdam";
 				TargetAttributes = {
+					C3DD0FCB23573F53007A4C23 = {
+						CreatedOnToolsVersion = 11.1;
+					};
 					C3FF2B8A223B8331003E658C = {
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1020;
@@ -302,6 +347,7 @@
 			projectRoot = "";
 			targets = (
 				C3FF2B8A223B8331003E658C /* GXUIKitExtensions */,
+				C3DD0FCB23573F53007A4C23 /* Universal-GXUIKitExtensions */,
 			);
 		};
 /* End PBXProject section */
@@ -315,6 +361,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C3DD0FCF23573F5D007A4C23 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Set bash script to exit immediately if any commands fail.\nset -e\n# Setup some constants for use later on.\nFRAMEWORK_NAME=\"GXUIKitExtensions\"\nOUTPUT_DIR=\"${SRCROOT}/build\"\n\n# If remains from a previous build exist,delete them.\nif [ -d \"${OUTPUT_DIR}\" ]; then\nrm -rf \"${OUTPUT_DIR}\"\nfi\n\n# Build the framework for device and for simulator.\necho \"Building for device\"\nxcodebuild -project \"${FRAMEWORK_NAME}.xcodeproj\" -scheme \"${FRAMEWORK_NAME}\" -configuration Release -arch arm64 only_active_arch=no defines_module=yes -sdk \"iphoneos\" -derivedDataPath \"${OUTPUT_DIR}\"\necho \"Building for Simulator\"\nxcodebuild -project \"${FRAMEWORK_NAME}.xcodeproj\" -scheme \"${FRAMEWORK_NAME}\" -configuration Release -arch x86_64 only_active_arch=no defines_module=yes -sdk \"iphonesimulator\" -derivedDataPath \"${OUTPUT_DIR}\"\n# Remove .framework file if exists from previous run.\nif [ -d \"${OUTPUT_DIR}/${FRAMEWORK_NAME}.framework\" ]; then\nrm -rf \"${OUTPUT_DIR}/${FRAMEWORK_NAME}.framework\"\nfi\n# Copy the device version of framework.\ncp -r \"${OUTPUT_DIR}/Build/Products/Release-iphoneos/${FRAMEWORK_NAME}.framework\" \"${OUTPUT_DIR}/${FRAMEWORK_NAME}.framework\"\n# Merging the device and simulator frameworks' executables with \n# lipo.\nlipo -create -output \"${OUTPUT_DIR}/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\" \"${OUTPUT_DIR}/Build/Products/Release-iphoneos/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\" \"${OUTPUT_DIR}/Build/Products/Release-iphonesimulator/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\"\n# Copy Swift module mappings for simulator into the framework. \ncp -r \"${OUTPUT_DIR}/Build/Products/Release-iphonesimulator/${FRAMEWORK_NAME}.framework/Modules/${FRAMEWORK_NAME}.swiftmodule/\" \"${OUTPUT_DIR}/${FRAMEWORK_NAME}.framework/Modules/${FRAMEWORK_NAME}.swiftmodule\"\ncp -r \"${OUTPUT_DIR}/Build/Products/Release-iphoneos/${FRAMEWORK_NAME}.framework/Modules/${FRAMEWORK_NAME}.swiftmodule/\" \"${OUTPUT_DIR}/${FRAMEWORK_NAME}.framework/Modules/${FRAMEWORK_NAME}.swiftmodule\"\n\n# Create new combined simulator and device swift header file.\nCOMBINED_PATH=\"${BUILD_DIR}/iOS + iOS Simulator/${PROJECT_NAME}-Swift.h\"\nmkdir -p \"${BUILD_DIR}/iOS + iOS Simulator/\"\ntouch \"${COMBINED_PATH}\"\necho \"#ifndef TARGET_OS_SIMULATOR\\n#include <TargetConditionals.h>\\n#endif\\n#if TARGET_OS_SIMULATOR\" >> \"${COMBINED_PATH}\"\ncat \"${OUTPUT_DIR}/Build/Products/Release-iphonesimulator/${FRAMEWORK_NAME}.framework/Headers/${FRAMEWORK_NAME}-Swift.h\" >> \"${COMBINED_PATH}\"\necho \"#else\" >> \"${COMBINED_PATH}\"\necho \"//Start of iphoneos\" >> \"${COMBINED_PATH}\"\ncat \"${OUTPUT_DIR}/Build/Products/Release-iphoneos/${FRAMEWORK_NAME}.framework/Headers/${FRAMEWORK_NAME}-Swift.h\" >> \"${COMBINED_PATH}\"\necho \"#endif\" >> \"${COMBINED_PATH}\"\n# Overwrite generated -Swift.h file with combined -Swift.h file \ncat \"$COMBINED_PATH\" > \"${OUTPUT_DIR}/${FRAMEWORK_NAME}.framework/Headers/${FRAMEWORK_NAME}-Swift.h\"\n#Optional Step to copy the framework to root folder\ncp -r \"${OUTPUT_DIR}/${FRAMEWORK_NAME}.framework\" \"${SRCROOT}/../../prebuilt_frameworks/\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C3FF2B87223B8331003E658C /* Sources */ = {
@@ -371,10 +437,29 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		C3DD0FCC23573F53007A4C23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S6GL3VTAFF;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C3DD0FCD23573F53007A4C23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S6GL3VTAFF;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		C3FF2B9D223B8331003E658C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -409,7 +494,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../../carthage_frameworks/Carthage/Build/iOS";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../../carthage_frameworks/Carthage/Build/iOS";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -424,7 +509,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -441,6 +526,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -475,7 +561,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../../carthage_frameworks/Carthage/Build/iOS";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../../carthage_frameworks/Carthage/Build/iOS";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -484,7 +570,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -508,7 +594,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = GXUIKitExtensions/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -536,7 +621,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = GXUIKitExtensions/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -555,6 +639,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C3DD0FCE23573F53007A4C23 /* Build configuration list for PBXAggregateTarget "Universal-GXUIKitExtensions" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3DD0FCC23573F53007A4C23 /* Debug */,
+				C3DD0FCD23573F53007A4C23 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C3FF2B85223B8331003E658C /* Build configuration list for PBXProject "GXUIKitExtensions" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
