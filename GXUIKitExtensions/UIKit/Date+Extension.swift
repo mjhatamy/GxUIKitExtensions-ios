@@ -10,11 +10,18 @@ import Foundation
 
 extension Date{
     
-    public func getLongDateFormattedString(_ languageCode:String) -> String{
+    /**
+     Formats Date to long version of date.
+     - Parameters:
+        - languageCode: if nil, system language is used and if non nil, Provided Locale will be used
+     */
+    public func getLongDateFormattedString(_ languageCode:String? = nil) -> String{
         let dateFormatter : DateFormatter = DateFormatter()
         dateFormatter.timeStyle = .short
         dateFormatter.dateStyle = .long
-        dateFormatter.locale = Locale(identifier: languageCode)
+        if let languageCode = languageCode {
+            dateFormatter.locale = Locale(identifier: languageCode)
+        }
         return dateFormatter.string(from: self)
     }
     

@@ -18,6 +18,8 @@ extension CNLabeledValue where ValueType == CNPhoneNumber {
         return labelString
     }
 }
+
+
 extension CNLabeledValue where ValueType == NSString {
     public var plainLabelString: String? {
         guard let labelString = self.label else { return nil }
@@ -56,7 +58,7 @@ func CNLabeledValueLabelToPlainString(_ labelString:String ) -> String?  {
         return "CNLabelHome";
     } else if labelString == CNLabelWork {
         return "CNLabelWork";
-    }else if labelString == CNLabelOther {
+    } else if labelString == CNLabelOther {
         return "CNLabelOther";
     }else if labelString == CNLabelEmailiCloud {
         return "CNLabelEmailiCloud";
@@ -123,7 +125,7 @@ func CNLabeledValueLabelToPlainString(_ labelString:String ) -> String?  {
             return "CNLabelContactRelationSon";
         }
     }
-    else if #available(iOS 13.0, *){
+    if #available(iOS 13.0, *){
         if labelString == CNLabelContactRelationColleague {
             return "CNLabelContactRelationColleague";
         }else if labelString == CNLabelContactRelationTeacher {
@@ -149,8 +151,11 @@ func CNLabeledValueLabelToPlainString(_ labelString:String ) -> String?  {
         }
         else if labelString == CNLabelContactRelationHusband {
             return "CNLabelContactRelationHusband";
+        } else if labelString == CNLabelSchool {
+            return "CNLabelSchool";
         }
     }
+    
     if labelString == "_$!<Car>!$_" {
         return "Car"
     } else if labelString == "_$!<Radio>!$_" {
