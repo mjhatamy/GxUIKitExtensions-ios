@@ -15,14 +15,14 @@ public extension UIViewController {
     static var safeAreaInsets:UIEdgeInsets{
         if Thread.isMainThread {
             if #available(iOS 11.0, *) {
-                if let m_global_safeAreaInsets = UIApplication.shared.keyWindow?.safeAreaInsets {
+                if let m_global_safeAreaInsets = UIApplication.shared.windows.first?.safeAreaInsets {
                     global_safeAreaInsets = m_global_safeAreaInsets
                 }
             }
         }else{
             DispatchQueue.main.async {
                 if #available(iOS 11.0, *) {
-                    if let m_global_safeAreaInsets = UIApplication.shared.keyWindow?.safeAreaInsets  {
+                    if let m_global_safeAreaInsets = UIApplication.shared.windows.first?.safeAreaInsets  {
                         global_safeAreaInsets = m_global_safeAreaInsets
                     }
                 }

@@ -87,14 +87,27 @@ public extension UIFont {
     class var footnoteSemiBold5:UIFont    { return UIFont.SFProTextSemiBoldFont(10) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.footnote) }
     class var footnoteBold5:UIFont    { return UIFont.SFProTextBoldFont(10) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.footnote) }
     
-    class var body:UIFont { return UIFont.preferredFont(forTextStyle: UIFont.TextStyle.body)  }
     
-    class var bodyLight:UIFont {
-        if let font:UIFont = UIFont.SFProTextLightFont(17) { return font }
-        LOGE("Unable to load font SFProTextRegularFont size: 17")
-        return UIFont.preferredFont(forTextStyle: UIFont.TextStyle.body)  }
+    private class func initCustom( _ textStyle:UIFont.TextStyle, weight:UIFont.Weight, design:UIFontDescriptor.SystemDesign = .default) -> UIFont{
+        guard let descriptor = UIFontDescriptor.preferredFontDescriptor(withTextStyle: textStyle)
+            .addingAttributes([UIFontDescriptor.AttributeName.traits: [UIFontDescriptor.TraitKey.weight: weight]])
+            .withDesign(design) else {
+                return UIFont.preferredFont(forTextStyle: textStyle)
+        }
+        return UIFont.init(descriptor: descriptor, size: 0)
+    }
+    
+    class var body:UIFont { return UIFont.initCustom(UIFont.TextStyle.body, weight: UIFont.Weight.regular, design: UIFontDescriptor.SystemDesign.default)  }
+    class var bodySemiBold:UIFont{ return UIFont.initCustom(UIFont.TextStyle.body, weight: UIFont.Weight.semibold, design: UIFontDescriptor.SystemDesign.default) }
+    class var bodyLight:UIFont{ return UIFont.initCustom(UIFont.TextStyle.body, weight: UIFont.Weight.light, design: UIFontDescriptor.SystemDesign.default) }
+    class var bodyLightMono:UIFont{ return UIFont.initCustom(UIFont.TextStyle.footnote, weight: UIFont.Weight.light, design: UIFontDescriptor.SystemDesign.monospaced) }
+    
     
     class var callout:UIFont { return UIFont.preferredFont(forTextStyle: UIFont.TextStyle.callout) }
+    class var calloutLight:UIFont { return UIFont.initCustom(UIFont.TextStyle.callout, weight: UIFont.Weight.light, design: UIFontDescriptor.SystemDesign.default) }
+    class var calloutSemiBold:UIFont { return UIFont.initCustom(UIFont.TextStyle.callout, weight: UIFont.Weight.semibold, design: UIFontDescriptor.SystemDesign.default) }
+    class var calloutMono:UIFont { return UIFont.initCustom(UIFont.TextStyle.callout, weight: UIFont.Weight.regular, design: UIFontDescriptor.SystemDesign.monospaced) }
+    
     //class var calloutLight:UIFont    { return UIFont.SFProTextLightFont(16) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.callout) }
     //class var calloutBold:UIFont    { return UIFont.SFProTextSemiBoldFont(16) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.callout) }
     class var caption1:UIFont       { return UIFont.preferredFont(forTextStyle: UIFont.TextStyle.caption1) }
@@ -120,9 +133,19 @@ public extension UIFont {
     class var callKitTitleGroupCall:UIFont         { return UIFont.preferredFont(forTextStyle: UIFont.TextStyle.title1) }
     class var callKitSubTitleGroupCall:UIFont         { return UIFont.preferredFont(forTextStyle: UIFont.TextStyle.title1) }
     
+    
     class var title1:UIFont         { return UIFont.preferredFont(forTextStyle: UIFont.TextStyle.title1) }
-    //class var title1Light:UIFont         { return UIFont.SFProTextLightFont(28) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.title1) }
+    class var title1Mono:UIFont { return UIFont.initCustom(UIFont.TextStyle.title1, weight: UIFont.Weight.medium, design: UIFontDescriptor.SystemDesign.monospaced) }
+    class var title1SemiBold:UIFont { return UIFont.initCustom(UIFont.TextStyle.title1, weight: UIFont.Weight.semibold, design: UIFontDescriptor.SystemDesign.default) }
+    class var title1Light:UIFont { return UIFont.initCustom(UIFont.TextStyle.title1, weight: UIFont.Weight.light, design: UIFontDescriptor.SystemDesign.default) }
+    class var title1LightMono:UIFont { return UIFont.initCustom(UIFont.TextStyle.title1, weight: UIFont.Weight.light, design: UIFontDescriptor.SystemDesign.monospaced) }
+    
+    
     class var title2:UIFont         { return UIFont.preferredFont(forTextStyle: UIFont.TextStyle.title2) }
+    class var title2Mono:UIFont { return UIFont.initCustom(UIFont.TextStyle.title2, weight: UIFont.Weight.medium, design: UIFontDescriptor.SystemDesign.monospaced) }
+    class var title2LightMono:UIFont { return UIFont.initCustom(UIFont.TextStyle.title2, weight: UIFont.Weight.light, design: UIFontDescriptor.SystemDesign.monospaced) }
+    
+    
     //class var title2Light:UIFont         { return UIFont.SFProTextLightFont(22) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.title2) }
     class var title3:UIFont         { return UIFont.preferredFont(forTextStyle: UIFont.TextStyle.title3) }
     //class var title3Light:UIFont         { return UIFont.SFProTextLightFont(20) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.title3) }
