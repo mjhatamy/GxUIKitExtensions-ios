@@ -25,7 +25,7 @@ extension Date{
         return dateFormatter.string(from: self)
     }
     
-    public func remaningDurationString( _ languageCode:String, tommorowString:String ) -> String{
+    public func remaningDurationString( _ languageCode:String = Locale.current.identifier, tommorowString:String ) -> String{
         let calendar = Calendar.current;
         let dateFormatter : DateFormatter = DateFormatter();
         dateFormatter.dateStyle = .none;
@@ -48,7 +48,7 @@ extension Date{
      For Last 7 Days, It returns Week Days like "Sunday"
      For any days before last 7 days, It returns Date like 05/23/18  based on device locale (mm/dd/yy or dd/mm/yy)
      */
-    public func recentCallDateFormattedString(_ languageCode:String, _ localizedStringForYesterday:String) -> String{
+    public func recentDateFormattedString( _ localizedStringForYesterday:String, languageCode:String = Locale.current.identifier) -> String {
         let calendar = Calendar.current
         if calendar.isDateInToday(self) {
             let dateFormatter : DateFormatter = DateFormatter()

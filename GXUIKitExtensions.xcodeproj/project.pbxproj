@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C3238CCB226F044F0038EDCE /* AVAudioSession+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3238CCA226F044F0038EDCE /* AVAudioSession+Extension.swift */; };
 		C3251972223E513D00029C0E /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3251971223E513D00029C0E /* UIImageView+Extensions.swift */; };
+		C326547823A4E5BA00417854 /* DTMF.swift in Sources */ = {isa = PBXBuildFile; fileRef = C326547723A4E5BA00417854 /* DTMF.swift */; };
 		C328BB5F227D506100C33BBF /* GXUIKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C328BB5E227D506100C33BBF /* GXUIKitExtensions.swift */; };
 		C32CC6552244B66300580902 /* UINavigationController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32CC6542244B66300580902 /* UINavigationController+Extensions.swift */; };
 		C3335F6F23206F390055FCD0 /* PGxDataSourceSectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3335F6E23206F390055FCD0 /* PGxDataSourceSectionItem.swift */; };
@@ -16,7 +17,9 @@
 		C3335F7323206FB90055FCD0 /* GxDataSourceRowSectionOrderedIdType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3335F7223206FB90055FCD0 /* GxDataSourceRowSectionOrderedIdType.swift */; };
 		C3335F75232090E00055FCD0 /* GxDataChangeSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3335F74232090E00055FCD0 /* GxDataChangeSet.swift */; };
 		C33FC5EA22571B0C0080D6FF /* NSRegularExpression+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33FC5E922571B0C0080D6FF /* NSRegularExpression+Extensions.swift */; };
+		C340ECFE23A71BF9009F9D46 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C340ECFD23A71BF9009F9D46 /* UIApplication+Extension.swift */; };
 		C36D0F93230FD6E000B57D13 /* UIToolbar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D0F92230FD6E000B57D13 /* UIToolbar+Extension.swift */; };
+		C374CC0523A5D2A500779CA7 /* Locale+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C374CC0423A5D2A500779CA7 /* Locale+Extensions.swift */; };
 		C38210C02317E34400371741 /* DispatchQueue+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38210BF2317E34400371741 /* DispatchQueue+Extension.swift */; };
 		C38210C423188FEC00371741 /* GxQRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38210C323188FEC00371741 /* GxQRCode.swift */; };
 		C38210D02318A97F00371741 /* QRCodeReaderResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38210C62318A97F00371741 /* QRCodeReaderResult.swift */; };
@@ -59,6 +62,7 @@
 /* Begin PBXFileReference section */
 		C3238CCA226F044F0038EDCE /* AVAudioSession+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVAudioSession+Extension.swift"; sourceTree = "<group>"; };
 		C3251971223E513D00029C0E /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
+		C326547723A4E5BA00417854 /* DTMF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTMF.swift; sourceTree = "<group>"; };
 		C328BB5E227D506100C33BBF /* GXUIKitExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GXUIKitExtensions.swift; sourceTree = "<group>"; };
 		C32CC6542244B66300580902 /* UINavigationController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extensions.swift"; sourceTree = "<group>"; };
 		C3335F6E23206F390055FCD0 /* PGxDataSourceSectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PGxDataSourceSectionItem.swift; sourceTree = "<group>"; };
@@ -66,7 +70,9 @@
 		C3335F7223206FB90055FCD0 /* GxDataSourceRowSectionOrderedIdType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GxDataSourceRowSectionOrderedIdType.swift; sourceTree = "<group>"; };
 		C3335F74232090E00055FCD0 /* GxDataChangeSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GxDataChangeSet.swift; sourceTree = "<group>"; };
 		C33FC5E922571B0C0080D6FF /* NSRegularExpression+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSRegularExpression+Extensions.swift"; sourceTree = "<group>"; };
+		C340ECFD23A71BF9009F9D46 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		C36D0F92230FD6E000B57D13 /* UIToolbar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIToolbar+Extension.swift"; sourceTree = "<group>"; };
+		C374CC0423A5D2A500779CA7 /* Locale+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Locale+Extensions.swift"; sourceTree = "<group>"; };
 		C38210BF2317E34400371741 /* DispatchQueue+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Extension.swift"; sourceTree = "<group>"; };
 		C38210C323188FEC00371741 /* GxQRCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GxQRCode.swift; sourceTree = "<group>"; };
 		C38210C62318A97F00371741 /* QRCodeReaderResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeReaderResult.swift; sourceTree = "<group>"; };
@@ -124,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				C3238CCA226F044F0038EDCE /* AVAudioSession+Extension.swift */,
+				C326547723A4E5BA00417854 /* DTMF.swift */,
 			);
 			path = AVFoundation;
 			sourceTree = "<group>";
@@ -239,6 +246,7 @@
 				C3FA3C5A2254D161002AD7A9 /* NSAttributedString+Extensions.swift */,
 				C33FC5E922571B0C0080D6FF /* NSRegularExpression+Extensions.swift */,
 				C3FF2BAA223B835D003E658C /* String+Extensions.swift */,
+				C384455A2358999900BF63DA /* TimeInterval+Extension.swift */,
 				C3FF2BA7223B835D003E658C /* UIColor+Extensions.swift */,
 				C3FF2BC0223B8B86003E658C /* UIDevice+Extensions.swift */,
 				C3FF2BAD223B835D003E658C /* UIFont+Extensions.swift */,
@@ -250,7 +258,8 @@
 				C3FF2BA9223B835D003E658C /* UIViewController+Extensions.swift */,
 				C3FF2BA6223B835D003E658C /* URL+Extensions.swift */,
 				C3C029C722F948F600BD16AE /* WKWebView+Extension.swift */,
-				C384455A2358999900BF63DA /* TimeInterval+Extension.swift */,
+				C374CC0423A5D2A500779CA7 /* Locale+Extensions.swift */,
+				C340ECFD23A71BF9009F9D46 /* UIApplication+Extension.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -350,6 +359,7 @@
 				C3251972223E513D00029C0E /* UIImageView+Extensions.swift in Sources */,
 				C3FF2BB4223B835D003E658C /* CGFloat+Extensions.swift in Sources */,
 				C3335F75232090E00055FCD0 /* GxDataChangeSet.swift in Sources */,
+				C374CC0523A5D2A500779CA7 /* Locale+Extensions.swift in Sources */,
 				C3CABF0122F62ADA00B3A9B6 /* UIInterfaceOrientationMask+Extension.swift in Sources */,
 				C3FF2BB1223B835D003E658C /* UIViewController+Extensions.swift in Sources */,
 				C3FA3C5B2254D161002AD7A9 /* NSAttributedString+Extensions.swift in Sources */,
@@ -369,6 +379,7 @@
 				C3C678B92275B5F6000CE449 /* Bundle+Extension.swift in Sources */,
 				C3FF2BC1223B8B86003E658C /* UIDevice+Extensions.swift in Sources */,
 				C3C678B42275A7AC000CE449 /* Data+Extension.swift in Sources */,
+				C340ECFE23A71BF9009F9D46 /* UIApplication+Extension.swift in Sources */,
 				C3335F7123206F620055FCD0 /* PGXDataSourceRowItem.swift in Sources */,
 				C38210D52318A97F00371741 /* QRCodeReaderViewContainer.swift in Sources */,
 				C32CC6552244B66300580902 /* UINavigationController+Extensions.swift in Sources */,
@@ -380,6 +391,7 @@
 				C3AE35E32258295F009994FF /* Date+Extension.swift in Sources */,
 				C3FF2BBF223B89DE003E658C /* Collection+Extension.swift in Sources */,
 				C38210D22318A97F00371741 /* QRCodeReader.swift in Sources */,
+				C326547823A4E5BA00417854 /* DTMF.swift in Sources */,
 				C3C029CB22F94BD600BD16AE /* GxPDFGenerator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

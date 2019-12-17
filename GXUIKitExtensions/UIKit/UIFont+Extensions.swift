@@ -14,6 +14,23 @@ public extension UIFont {
     static private(set) var SFProTextSemiBoldFont_IsRegistered:Bool = false
     static private(set) var SFProTextBoldFont_IsRegistered:Bool = false
     
+    class func screenRelativeSizeCalculation(_ fontSize: CGFloat, usingBaseLargeScreen: Bool = false) -> CGFloat {
+        let screenWidth = UIScreen.main.bounds.size.width
+        var calculatedFontSize: CGFloat = 0
+        if usingBaseLargeScreen {
+            calculatedFontSize = (414 / screenWidth) * fontSize
+        } else {
+            calculatedFontSize = (screenWidth / 375) * fontSize
+        }
+        return calculatedFontSize.rounded()
+    }
+    
+    class func screenSizeRelativeSystemFont(ofSize fontSize: CGFloat, weight: UIFont.Weight = UIFont.Weight.regular) -> UIFont {
+        let calculatedFontSize = self.screenRelativeSizeCalculation(fontSize)
+        //print("calculatedFontSize: \(calculatedFontSize)")
+        return UIFont.systemFont(ofSize: calculatedFontSize, weight: weight)
+    }
+    
     internal static func registerFontIfRequired(withFilenameString filenameString: String, fileExtension:String) -> Bool {
         let bundle = Bundle(for: GXUIKitExtensions.self)
         
@@ -47,21 +64,6 @@ public extension UIFont {
         }else{
             return true
         }
-    }
-
-    class func SFProTextLightFont(_ size: CGFloat = 12) -> UIFont?{
-        guard let font = UIFont.init(name: "SFProText-Light", size: size) else{
-            if !UIFont.SFProTextLightFont_IsRegistered { UIFont.SFProTextLightFont_IsRegistered = UIFont.registerFontIfRequired(withFilenameString: "SF-Pro-Text-Light", fileExtension: "otf") }
-            return UIFont.init(name: "SFProText-Light", size: size);
-        }
-        return font }
-    
-    class func SFProTextRegularFont(_ size: CGFloat = 12) -> UIFont?{
-        guard let font = UIFont.init(name: "SFProText-Regular", size: size) else{
-            if !UIFont.SFProTextRegularFont_IsRegistered { UIFont.SFProTextRegularFont_IsRegistered = UIFont.registerFontIfRequired(withFilenameString: "SF-Pro-Text-Regular", fileExtension: "otf") }
-            return UIFont.init(name: "SFProText-Regular", size: size);
-        }
-        return font
     }
     
     class func SFProTextSemiBoldFont(_ size: CGFloat = 12) -> UIFont?{
@@ -114,12 +116,15 @@ public extension UIFont {
     //class var caption1Light:UIFont       { return UIFont.SFProTextLightFont(11) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.caption1) }
     class var caption2:UIFont       { return UIFont.preferredFont(forTextStyle: UIFont.TextStyle.caption2) }
     
-    class var footnote:UIFont       { return UIFont.preferredFont(forTextStyle: UIFont.TextStyle.footnote) }
+    class var footnote:UIFont       { return UIFont.initCustom(UIFont.TextStyle.footnote, weight: UIFont.Weight.regular, design: UIFontDescriptor.SystemDesign.default) }
+     class var footnoteMedium:UIFont{ return UIFont.initCustom(UIFont.TextStyle.footnote, weight: UIFont.Weight.medium, design: UIFontDescriptor.SystemDesign.default) }
+    class var footnoteSemiBold:UIFont{ return UIFont.initCustom(UIFont.TextStyle.footnote, weight: UIFont.Weight.semibold, design: UIFontDescriptor.SystemDesign.default) }
+    class var footnoteLight:UIFont{ return UIFont.initCustom(UIFont.TextStyle.footnote, weight: UIFont.Weight.light, design: UIFontDescriptor.SystemDesign.default) }
     //class var footnoteLight:UIFont       { return UIFont.SFProTextLightFont(13) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.footnote) }
     //class var footnote2:UIFont       { return UIFont.SFProTextRegularFont(14) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.footnote) }
     //class var footnoteBold:UIFont   { return UIFont.SFProTextSemiBoldFont(13) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.footnote) }
     
-    class var subheadline:UIFont        { return UIFont.preferredFont(forTextStyle: UIFont.TextStyle.subheadline) }
+    class var subheadline:UIFont        { return UIFont.initCustom(UIFont.TextStyle.subheadline, weight: UIFont.Weight.regular, design: UIFontDescriptor.SystemDesign.default) }
     //class var subheadSemiBold:UIFont        { return UIFont.SFProTextSemiBoldFont(15) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.subheadline) }
     //class var subhead2:UIFont        { return UIFont.SFProTextRegularFont(16) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.subheadline) }
    // class var subheadLight:UIFont        { return UIFont.SFProTextLightFont(15) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.subheadline) }
@@ -151,9 +156,7 @@ public extension UIFont {
     //class var title3Light:UIFont         { return UIFont.SFProTextLightFont(20) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.title3) }
     //class var title4:UIFont         { return UIFont.SFProTextRegularFont(19) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.title3) }
     
-    class var largeTitle:UIFont     { if #available(iOS 11.0, *) {
-        return UIFont.preferredFont(forTextStyle: UIFont.TextStyle.largeTitle)
-    } else {
-        return UIFont.SFProTextRegularFont(34) ?? UIFont.systemFont(ofSize: 34)
-        } }
+    class var largeTitle:UIFont {
+        return UIFont.initCustom(UIFont.TextStyle.largeTitle, weight: UIFont.Weight.regular, design: UIFontDescriptor.SystemDesign.default)
+    }
 }

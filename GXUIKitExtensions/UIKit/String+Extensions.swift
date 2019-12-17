@@ -55,8 +55,71 @@ extension NSAttributedString {
     
 }
 
+fileprivate let PersianNumbers:[String:String] = [
+    "0":"\u{0660}",//"۰",
+    "1":"\u{0661}",//"۱",
+    "2":"\u{0662}",//"۲",
+    "3":"\u{0663}",//"۳",
+    "4":"\u{0664}",//"۴",
+    "5":"\u{0665}",//"۵",
+    "6":"\u{0666}",//"۶",
+    "7":"\u{0667}",//"۷",
+    "8":"\u{0668}",//"۸",
+    "9":"\u{0669}",//"۹",
+    //"%":"\u{066A}", //٪
+    //"*":"\u{066D}", //*
+    //"+":"\u{0200F}+",
+    //"$":"\u{0200E}$",
+    //".":"\u{0200E}."
+    ",":"،"
+]
+
 public extension String{
     static let phoneNumberKit = PhoneNumberKit()
+    
+    var embedExplicitLTR: String {
+        return "\u{202A}" + self + "\u{202C}"
+    }
+    var localizeString: String {
+        var value:String = self
+        
+        ///Clean up string from "\u{200E}" and "\u{200F}"
+        value = value.replacingOccurrences(of: "\u{200E}", with: "")
+        value = value.replacingOccurrences(of: "\u{200F}", with: "")
+        
+        //var state:Int = 0
+        if Locale.current.isPersianBasedLanguage {
+            for item in PersianNumbers {
+                value = value.replacingOccurrences(of: item.key, with: "\u{200E}"+item.value)
+            }
+        }
+        
+        return value
+    }
+    
+    var toEnglishNumbers:String {
+        var value = self
+        for item in PersianNumbers {
+            value = value.replacingOccurrences(of: item.value, with: item.key)
+        }
+        return "\u{200E}" + value
+    }
+    
+    private func capitalizingFirstLetter() -> String {
+        return prefix(1).capitalized + dropFirst()
+    }
+    mutating func capitalizeFirstLetter() {
+        if self.count <= 1 {
+            return
+        }
+        self = self.capitalizingFirstLetter()
+    }
+    var capitalizedFirstLetter: String {
+        if self.count <= 1 {
+            return self
+        }
+        return self.capitalizingFirstLetter()
+    }
     
     func conformTo(regularExpression pattern: String, options: NSRegularExpression.Options = NSRegularExpression.Options.caseInsensitive ) -> Bool {
         let regex = try? NSRegularExpression(pattern: pattern, options: .caseInsensitive)
