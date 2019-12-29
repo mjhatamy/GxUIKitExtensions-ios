@@ -10,6 +10,16 @@ import Foundation
 
 extension Date{
     
+    public func getShortTimeFormattedString(_ languageCode:String? = nil) -> String{
+        let dateFormatter : DateFormatter = DateFormatter()
+        dateFormatter.timeStyle = .short
+        dateFormatter.dateStyle = .none
+        if let languageCode = languageCode {
+            dateFormatter.locale = Locale(identifier: languageCode)
+        }
+        return dateFormatter.string(from: self)
+    }
+    
     /**
      Formats Date to long version of date.
      - Parameters:

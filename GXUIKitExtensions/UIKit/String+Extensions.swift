@@ -77,6 +77,9 @@ fileprivate let PersianNumbers:[String:String] = [
 public extension String{
     static let phoneNumberKit = PhoneNumberKit()
     
+    
+    
+    
     var embedExplicitLTR: String {
         return "\u{202A}" + self + "\u{202C}"
     }

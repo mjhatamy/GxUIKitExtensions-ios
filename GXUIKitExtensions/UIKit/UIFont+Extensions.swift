@@ -100,6 +100,7 @@ public extension UIFont {
     }
     
     class var body:UIFont { return UIFont.initCustom(UIFont.TextStyle.body, weight: UIFont.Weight.regular, design: UIFontDescriptor.SystemDesign.default)  }
+    class var bodyMedium:UIFont{ return UIFont.initCustom(UIFont.TextStyle.body, weight: UIFont.Weight.medium, design: UIFontDescriptor.SystemDesign.default) }
     class var bodySemiBold:UIFont{ return UIFont.initCustom(UIFont.TextStyle.body, weight: UIFont.Weight.semibold, design: UIFontDescriptor.SystemDesign.default) }
     class var bodyLight:UIFont{ return UIFont.initCustom(UIFont.TextStyle.body, weight: UIFont.Weight.light, design: UIFontDescriptor.SystemDesign.default) }
     class var bodyLightMono:UIFont{ return UIFont.initCustom(UIFont.TextStyle.footnote, weight: UIFont.Weight.light, design: UIFontDescriptor.SystemDesign.monospaced) }
