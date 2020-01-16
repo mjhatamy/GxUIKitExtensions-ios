@@ -131,7 +131,9 @@ public extension UIFont {
    // class var subheadLight:UIFont        { return UIFont.SFProTextLightFont(15) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.subheadline) }
     //class var subhead3:UIFont        { return UIFont.SFProTextRegularFont(17) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.subheadline) }
     
-    class var headline:UIFont       { return UIFont.preferredFont(forTextStyle: UIFont.TextStyle.headline) }
+    class var headline: UIFont { return UIFont.initCustom(UIFont.TextStyle.headline, weight: UIFont.Weight.regular, design: UIFontDescriptor.SystemDesign.default) }
+    class var headlineLight: UIFont { return UIFont.initCustom(UIFont.TextStyle.headline, weight: UIFont.Weight.light, design: UIFontDescriptor.SystemDesign.default) }
+    class var headlineUltraLight: UIFont { return UIFont.initCustom(UIFont.TextStyle.headline, weight: UIFont.Weight.ultraLight, design: UIFontDescriptor.SystemDesign.default) }
     //class var headline2:UIFont      { return UIFont.SFProTextSemiBoldFont(18) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.headline) }
     //class var headline3:UIFont      { return UIFont.SFProTextSemiBoldFont(19) ?? UIFont.preferredFont(forTextStyle: UIFont.TextStyle.headline) }
     
